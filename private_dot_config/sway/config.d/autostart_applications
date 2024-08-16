@@ -35,5 +35,15 @@ exec nm-applet --indicator
 
 exec_always ~/.config/sway/scripts/autotiling
 
-# Sway Fader
+##############
+# Sway Fader #
+##############
+
 exec python3 ~/.config/sway/scripts/swayfader.py
+
+############
+# cliphist #
+############
+
+exec wl-paste --type text --watch cliphist store
+exec wl-paste --type image --watch cliphist store
