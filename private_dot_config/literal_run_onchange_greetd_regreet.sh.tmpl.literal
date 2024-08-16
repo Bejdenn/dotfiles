@@ -1,4 +1,0 @@
-#!/bin/bash
-
-# /etc/greetd/regreet.conf {{ include "sway/etc/greetd/regreet.toml" | sha256sum }}
-sudo ln -sf {{ joinPath .chezmoi.sourceDir "sway/etc/greetd/regreet.toml" | quote }} /etc/greetd/regreet.toml
