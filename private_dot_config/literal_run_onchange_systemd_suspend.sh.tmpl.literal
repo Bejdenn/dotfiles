@@ -1,4 +1,0 @@
-#!/bin/bash
-
-# /etc/systemd/logind.conf.d/suspend.conf {{ include "systemd/logind.conf.d/suspend.conf" | sha256sum }}
-sudo ln -sf {{ joinPath .chezmoi.sourceDir "sway/etc/systemd/logind.conf.d/suspend.conf" | quote }} /etc/systemd/logind.conf.d/suspend.conf
