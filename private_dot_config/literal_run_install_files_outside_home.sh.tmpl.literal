@@ -1,5 +1,0 @@
-#!/bin/bash
-
-for file in $(find {{ .chezmoi.sourceDir "sway/etc" | quote }} -type f); do
-    sudo ln -sf $file /etc/"${file/$HOME\/.config\/sway\/etc\//}"
-done
