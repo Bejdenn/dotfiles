@@ -33,7 +33,7 @@ exec nm-applet --indicator
 # Autotiling #
 ##############
 
-exec_always ~/.config/sway/scripts/autotiling
+exec autotiling
 
 ##############
 # Sway Fader #
