@@ -22,15 +22,10 @@ set $powermenu ~/.config/sway/scripts/power_menu.sh
 ######################
 # Idle configuration #
 ######################
-
-exec swayidle -w\
-    timeout 1070 'swaylock -f -C ~/.config/swaylock/config'\
-    timeout 770 'swaymsg "output * power off"' \
-    resume 'swaymsg "output * power on"' \
-    before-sleep 'swaylock -C ~/.config/swaylock/config'
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
+#
+exec swayidle idlehint 1
+exec_always swayidle -w before-sleep "$lock"
+set $lock swaylock -C ~/.config/swaylock/config
 
 ###############
 # Lock screen #
@@ -194,6 +189,13 @@ bindsym XF86MonBrightnessDown exec brightnessctl -c backlight set 10%-
 
 bindsym $mod+n exec nautilus
 bindsym $mod+o exec firefox
+
+# Launch the clipboard manager
+bindsym $mod+Ctrl+v exec cliphist list | fuzzel -d -w 90 -l 30 -p "Select an entry to copy it to your clipboard buffer:"| cliphist decode | wl-copy
+
+# Delete an entry from the clipboard manager
+bindsym $mod+Ctrl+x exec cliphist list | fuzzel -d -w 90 -l 30 -t cc9393ff -S cc9393ff -p "Select an entry to delete it from cliphist:"| cliphist delete
+# Note: you can clear all cliphist entries by running `cliphist wipe`
 
 ###############
 # Screenshots #
