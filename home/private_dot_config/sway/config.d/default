@@ -192,7 +192,7 @@ bindsym XF86MonBrightnessDown exec brightnessctl -c backlight set 10%-
 # App shortcuts #
 #################
 
-bindsym $mod+n exec thunar
+bindsym $mod+n exec nautilus
 bindsym $mod+o exec firefox
 
 ###############

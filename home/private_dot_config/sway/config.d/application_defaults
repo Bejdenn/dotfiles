@@ -8,8 +8,8 @@ for_window [app_id="firefox"] focus
 assign [class="firefox"] 2
 for_window [class="firefox"] focus
 
-assign [app_id=thunar] 3
-for_window [app_id=thunar] focus
+assign [app_id="org.gnome.Nautilus"] 3
+for_window [app_id="org.gnome.Nautilus"] focus
 
 assign [class="Telegram"] 4
 for_window [class="Telegram"] focus
