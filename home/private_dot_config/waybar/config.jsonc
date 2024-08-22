@@ -27,7 +27,6 @@
         "backlight",
         "clock",
         "tray",
-        "custom/weather",
         "custom/power",
     ],
 
@@ -172,12 +171,6 @@
         "icon-size": 18,
         "spacing":10,
      },
-
-    "custom/weather": {
-        "exec": "~/.config/waybar/scripts/weather.sh schwandorf", 
-        "return-type": "json",
-        "interval": 600,
-    },
 
     "custom/power": {
         "format":"⏻",
