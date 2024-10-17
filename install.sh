@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo rsync -a --chown=root:root etc/ /etc/
+sudo rsync -a --chown=root:root /home/dennisbejze/.local/share/chezmoi/etc/ /etc/
