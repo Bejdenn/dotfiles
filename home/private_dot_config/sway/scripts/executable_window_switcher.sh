@@ -18,7 +18,7 @@ formatted_output=$(swaymsg -t get_tree | jq -r --arg ws_length "$ws_length" --ar
     | objects
     | select(has("app_id"))
     | (if.focused then "*" else " " end) as $asterisk
-    | "\($asterisk)[\($ws.name | lpad($ws_length | tonumber; " "))]\((.app_id // "xwayland") | lpad($app_id_length | tonumber; " ")): \(.name | rpad($name_length | tonumber; " ")) (\(.id))"
+    | "\($asterisk) [\($ws.name | lpad($ws_length | tonumber; " "))]\((.app_id // "xwayland") | lpad($app_id_length | tonumber; " ")): \(.name | rpad($name_length | tonumber; " ")) (\(.id))"
 ')
 
 # Launch fuzzel with the formatted output

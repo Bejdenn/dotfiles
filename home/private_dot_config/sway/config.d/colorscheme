@@ -1,0 +1,8 @@
+# Apply GTK theming
+exec_always ~/.config/sway/scripts/import-gsettings 
+
+# class                 border   bground  text     indicator
+client.focused          #8fbcbb  #8fbcbb  #2e3440  #8fbcbb
+client.focused_inactive #4c566a  #4c566a  #F8F8F2  #4c566a
+client.unfocused        #282A36  #282A36  #BFBFBF  #282A36
+client.urgent           #bf616a  #bf616a  #F8F8F2  #bf616a
