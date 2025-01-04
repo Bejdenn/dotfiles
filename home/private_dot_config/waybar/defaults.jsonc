@@ -1,0 +1,131 @@
+{
+  "custom/launcher": {
+    "format": "",
+    "on-click": "exec fuzzel",
+    "tooltip": false,
+  },
+
+  "include": ["~/.config/waybar/cpu.jsonc"],
+
+  "memory": {
+    "interval": 5,
+    "format": " {used:0.1f}G/{total:0.1f}G",
+    "format-alt": " {:>3}%",
+    "states": {
+      "warning": 80,
+      "critical": 92,
+    },
+    "tooltip": false,
+  },
+
+  "tray": {
+    "icon-size": 18,
+    "spacing": 10,
+  },
+
+  "sway/mode": {
+    "format": "{}",
+    "tooltip": false,
+  },
+
+  "custom/spotify": {
+    "format": "{icon} {}",
+    "escape": true,
+    "return-type": "json",
+    "max-length": 40,
+    "on-click": "playerctl -p spotify play-pause",
+    "on-click-right": "killall spotify",
+    "smooth-scrolling-threshold": 10, // This value was tested using a trackpad, it should be lowered if using a mouse.
+    "on-scroll-up": "playerctl -p spotify next",
+    "on-scroll-down": "playerctl -p spotify previous",
+    "exec": "$HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null", // Script in resources/custom_modules folder
+    "exec-if": "pgrep spotify",
+  },
+
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "disable-markup": false,
+    "all-outputs": true,
+    "format": "{name}",
+  },
+
+  "custom/updates": {
+    "format": "{} Update(s)",
+    "exec": "checkupdates | wc -l",
+    "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
+    "interval": 15,
+    "on-click": "alacritty -T waybar_app_checkupdates -e yay -Syu && notify-send 'The system has been updated.' ",
+  },
+
+  "bluetooth": {
+    "format": " {status}",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱 {num_connections}",
+    "on-click": "alacritty -T waybar_app_bluetui -e bluetui",
+    "tooltip": false,
+  },
+
+  "pulseaudio": {
+    "scroll-step": 2,
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟",
+    "format-icons": {
+      "headphones": "",
+      "handsfree": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["󰕿", "󰖀", "󰕾"],
+    },
+    "on-click": "pavucontrol",
+  },
+
+  "battery": {
+    "interval": 10,
+    "states": {
+      "warning": 30,
+      "critical": 15,
+    },
+    "format-time": "{H}:{M:02}",
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}% ({time})",
+    "format-charging-full": " {capacity}%",
+    "format-full": "{icon} {capacity}%",
+    "format-icons": ["", "", "", "", ""],
+  },
+
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": ["󰄰", "󰪞", "󰪟", "󰪠", "󰪡", "󰪢", "󰪣", "󰪤", "󰪥"],
+    "tooltip-format": "Backlight (Scroll): {percent:}%",
+    "on-scroll-down": "brightnessctl -c backlight set 10%-",
+    "on-scroll-up": "brightnessctl -c backlight set +10%",
+  },
+
+  "clock": {
+    "interval": 10,
+    "format": "{:%a %d. %b %R}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>",
+      },
+    },
+    "actions": {
+      "on-scroll-up": "shift_down",
+      "on-scroll-down": "shift_up",
+    },
+  },
+
+  "custom/power": {
+    "format": "⏻",
+    "on-click": "exec ~/.config/sway/scripts/power_menu.sh",
+    "tooltip": false,
+  },
+}
