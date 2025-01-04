@@ -27,16 +27,3 @@ key-hl-color=#d8dee9
 caps-lock-key-hl-color=#d8dee9
 
 separator-color=#e5e9f0
-indicator-caps-lock
-
-screenshots
-
-clock
-indicator
-
-effect-pixelate=20
-
-font=Iosevka
-font-size=20
-
-indicator-radius=100
