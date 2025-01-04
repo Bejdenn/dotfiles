@@ -2,14 +2,7 @@
 
 [[ -r ~/.bashrc ]] && . ~/.bashrc
 
-GOPATH=$(go env GOPATH) || true
-if [ -n "$GOPATH" ]; then
-	export PATH="$GOPATH/bin:$PATH"
-fi
 
-export PATH="$HOME/neovim/bin:$PATH"
-export PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
-export MANPATH="/usr/local/texlive/2024/texmf-dist/doc/man:$MANPATH"
-export INFOPATH="/usr/local/texlive/2024/texmf-dist/doc/info:$INFOPATH"
+# Added by Toolbox App
+export PATH="$PATH:/home/dennisbejze/.local/share/JetBrains/Toolbox/scripts"
 
-export EDITOR=nvim
