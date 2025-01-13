@@ -1,4 +1,3 @@
-.config/alacritty/themes
 {{- if ne .chezmoi.os "linux" }}
 .config/fuzzel
 .config/mako
