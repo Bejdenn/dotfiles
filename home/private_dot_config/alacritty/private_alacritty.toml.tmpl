@@ -1,8 +1,4 @@
-{{- if eq .chezmoi.os "linux" }}
-[terminal.shell]
-program = "/user/bin/sh"
-args = ["/home/dennisbejze/.config/alacritty/tmux.sh"]
-{{- end }} [font]
+[font]
 # size = 11 
 size = 14 # on high resolutions
 normal = { family = "IosevkaTerm Nerd Font", style = "Regular" }
@@ -24,3 +20,8 @@ TERM = "xterm-256color"
 import = [
     "~/.config/alacritty/theme.toml"
 ]
+{{- if eq .chezmoi.os "linux" }}
+[terminal.shell]
+program = "/user/bin/sh"
+args = ["/home/dennisbejze/.config/alacritty/tmux.sh"]
+{{- end }}
