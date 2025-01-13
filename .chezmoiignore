@@ -1,11 +1,11 @@
 {{- if ne .chezmoi.os "linux" }}
-dconf
-fuzzel
-mako
-nwg-look
-sway
-swaylock
-tmux
-waybar
-zathura
+.config/dconf
+.config/fuzzel
+.config/mako
+.config/wg-look
+.config/way
+.config/waylock
+.config/mux
+.config/aybar
+.config/athura
 {{- end }}
