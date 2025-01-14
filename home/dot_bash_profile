@@ -1,8 +1,0 @@
-#!/bin/bash
-
-[[ -r ~/.bashrc ]] && . ~/.bashrc
-
-
-# Added by Toolbox App
-export PATH="$PATH:/home/dennisbejze/.local/share/JetBrains/Toolbox/scripts"
-

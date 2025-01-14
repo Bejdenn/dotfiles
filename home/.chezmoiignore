@@ -1,9 +1,0 @@
-{{- if ne .chezmoi.os "linux" }}
-.config/fuzzel
-.config/mako
-.config/nwg-look
-.config/sway
-.config/swaylock
-.config/waybar
-.config/zathura
-{{- end }}
