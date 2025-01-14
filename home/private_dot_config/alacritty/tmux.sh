@@ -1,2 +1,2 @@
-#!/usr/bin/bash
-tmux new -A -s "$(/home/dennisbejze/go/bin/random_name)"
+#!/bin/sh
+"$1"/tmux new -A -s "$("$("$1"/go env GOPATH)"/bin/random_name)"
