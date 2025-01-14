@@ -1,8 +1,8 @@
-["home/.config/nvim"]
+[".config/nvim"]
     type = "git-repo"
-    url = "https://github.com/kickstart.nvim.git"
+    url = "https://github.com/kickstart.nvim"
     refreshPeriod = "168h"
-["home/.tmux/plugins/tpm"]
+[".tmux/plugins/tpm"]
     type = "git-repo"
-    url = "https://github.com/tmux-plugins/tpm.git"
+    url = "https://github.com/tmux-plugins/tpm"
     refreshPeriod = "168h"
