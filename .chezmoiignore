@@ -1,0 +1,11 @@
+{{- if ne .chezmoi.os "linux" }}
+.bash*
+inputrc
+home/.config/fuzzel
+home/.config/mako
+home/.config/nwg-look
+home/.config/sway
+home/.config/swaylock
+home/.config/waybar
+home/.config/zathura
+{{- end }}

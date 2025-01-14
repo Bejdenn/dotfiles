@@ -1,0 +1,31 @@
+#! /usr/bin/bash
+
+if [ -f ~/.bash_aliases ]; then
+	source /home/dennisbejze/.bash_aliases
+fi
+
+if [ -f ~/.bash_prompt ]; then
+	source /home/dennisbejze/.bash_prompt
+fi
+
+if [ -f ~/.bash_shell ]; then
+	source /home/dennisbejze/.bash_shell
+fi
+
+# Editor used by CLI
+export EDITOR="nvim"
+export SUDO_EDITOR="$EDITOR"
+
+GOPATH=$(go env GOPATH) || true
+if [ -n "$GOPATH" ]; then
+	export PATH="$GOPATH/bin:$PATH"
+fi
+
+export PATH="$HOME/neovim/bin:$PATH"
+export PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
+export MANPATH="/usr/local/texlive/2024/texmf-dist/doc/man:$MANPATH"
+export INFOPATH="/usr/local/texlive/2024/texmf-dist/doc/info:$INFOPATH"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
