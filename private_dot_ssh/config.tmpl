@@ -1,8 +1,5 @@
 Host *
-  AddKeysToAgent yes
-  IdentityFile ~/.ssh/id_ed25519
-Host *
-  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+  IdentityAgent {{- if eq .chezmoi.os "darwin" }} "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock" {{- else }} ~/.1password/agent.sock {{- end }}
 Host gitlab.oth-regensburg.de
   IdentityFile ~/.ssh/gitlab-oth.pub
   IdentitiesOnly yes
