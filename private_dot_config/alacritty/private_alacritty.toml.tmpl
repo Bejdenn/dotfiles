@@ -1,12 +1,6 @@
 [font]
-# size = 11 
-size = 14 # on high resolutions
-{{/* when installing font with Homebrew, it has another name as on Linux */}}
-{{- if eq .chezmoi.os "darwin" }}
-normal = { family = "IosevkaTerm Nerd Font", style = "Regular" }
-{{- else }}
-normal = { family = "IosevkaTerm", style = "Regular" }
-{{- end }}
+size = 14
+normal = { family = "Iosevka Term", style = "Regular" }
 bold = { style = "Bold" }
 italic = { style = "Italic" }
 
