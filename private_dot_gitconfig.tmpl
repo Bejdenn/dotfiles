@@ -1,0 +1,10 @@
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = {{- if eq .chezmoi.os "darwin" }} /Applications/1Password.app/Contents/MacOS/op-ssh-sign {{- else }} /opt/1Password/op-ssh-sign {{- end }}
+[commit]
+	gpgsign = true
+[user]
+	signingkey = {{ onepasswordRead "op://Private/Git Signing Key/public key" }}
+	name = Dennis Bejze
+	email = 53354166+Bejdenn@users.noreply.github.com
