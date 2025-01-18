@@ -1,6 +1,6 @@
 [font]
 size = 14
-normal = { family = "Iosevka Term", style = "Regular" }
+normal = { family = {{- if eq .chezmoi.os "linux" }} "IosevkaTermNF" {{- else }} "IosevkaTerm NF" {{- end }}, style = "Regular" }
 bold = { style = "Bold" }
 italic = { style = "Italic" }
 
