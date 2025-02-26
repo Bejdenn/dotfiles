@@ -1,6 +1,6 @@
 {{- if eq .chezmoi.hostname "windhelm" -}} Match host * exec "test -z $SSH_TTY" {{- else -}} Host * {{- end }}
   IdentityAgent {{- if eq .chezmoi.os "darwin" }} "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock" {{- else }} ~/.1password/agent.sock {{- end }}
-{{- if ne .chezmoi.hostname "windhelm" -}}
+{{ if ne .chezmoi.hostname "windhelm" -}}
 Host internal.elinis.de
   ForwardAgent yes
 {{- end }}
