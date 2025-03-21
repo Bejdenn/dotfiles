@@ -19,12 +19,3 @@ TERM = "xterm-256color"
 import = [
     "~/.config/alacritty/theme.toml"
 ]
-
-[terminal.shell]
-{{- if eq .chezmoi.os "linux" }}
-program = "/usr/bin/sh"
-args = ["/home/dennisbejze/.config/alacritty/tmux.sh", "/usr/bin"]
-{{- else }}
-program = "/bin/sh"
-args = ["/Users/dennisbejze/.config/alacritty/tmux.sh", "/opt/homebrew/bin"]
-{{- end }}
