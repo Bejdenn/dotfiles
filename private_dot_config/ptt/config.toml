@@ -1,0 +1,5 @@
+[defaults]
+duration = "7h"
+min-session-length = "10m"
+max-session-length = "90m"
+pause = "15m"
