@@ -1,8 +1,35 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-[[ -r ~/.bashrc ]] && . ~/.bashrc
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
 
+# User specific environment and startup programs
 
-# Added by Toolbox App
-export PATH="$PATH:/home/dennisbejze/.local/share/JetBrains/Toolbox/scripts"
+# Prepend directories to PATH if they exist and are not already there
+declare -a paths_to_add=(
+	"$HOME/.local/bin"
+	"$HOME/bin"
+	"$HOME/.cargo/bin"
+	"$(go env GOPATH)/bin"
+)
+
+for p in "${paths_to_add[@]}"; do
+	# Check if directory exists and is not already in the PATH
+	if [ -d "$p" ] && [[ ":$PATH:" != *":$p:"* ]]; then
+		PATH="$p:$PATH"
+	fi
+done
+unset p paths_to_add
+export PATH
+
+# Load NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# Load Gemini API Key from 1Password, but only if not already set.
+# This avoids running 'op' on every new shell, speeding up startup.
+export GEMINI_API_KEY=${GEMINI_API_KEY:-$(op read "op://Private/Gemini API Key/credential" 2>/dev/null)}
 
