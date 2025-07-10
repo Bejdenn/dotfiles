@@ -51,7 +51,7 @@
       "type": "terminal",
     },
     {
-      "key": "│ {#32}  shell   {#keys}│",
+      "key": "│ {#32} shell    {#keys}│",
       "type": "shell",
     },
     {
@@ -65,11 +65,11 @@
       "folders": "/",
     },
     {
-      "key": "│ {#35}  memory  {#keys}│",
+      "key": "│ {#35} memory   {#keys}│",
       "type": "memory",
     },
     {
-      "key": "│ {#36}󰩟  network {#keys}│",
+      "key": "│ {#36}󰩟 network  {#keys}│",
       "type": "localip",
       "format": "{ipv4} ({ifname})",
     },
@@ -78,7 +78,7 @@
       "type": "custom",
     },
     {
-      "key": "│ {#39}  colors  {#keys}│",
+      "key": "│ {#39} colors   {#keys}│",
       "type": "colors",
       "symbol": "triangle",
     },
