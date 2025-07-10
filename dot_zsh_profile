@@ -1,0 +1,4 @@
+gemini () {
+	export GEMINI_API_KEY="op://Private/Gemini API Key/credential"
+	op run --no-masking -- gemini
+}

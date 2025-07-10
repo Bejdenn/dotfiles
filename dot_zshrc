@@ -1,0 +1,37 @@
+if [ -f ~/.zsh_aliases ]; then
+	source ~/.zsh_aliases
+fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Created by `pipx` on 2025-01-06 11:55:49
+export PATH="$PATH:/Users/dennisbejze/.local/bin"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/dennisbejze/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/dennisbejze/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/dennisbejze/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/dennisbejze/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+export PATH="$(go env GOPATH)/bin:$PATH"
+export WEBOTS_HOME="/Applications/Webots.app"
+export WEBOTS_HOME_PATH=$WEBOTS_HOME/Contents
+
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/dennisbejze/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
+
+eval "$(starship init zsh)"
