@@ -36,9 +36,4 @@ set -g status-left-length 30
 set -gq allow-passthrough on
 set -g visual-activity off
 
-{{ if eq .chezmoi.hostname "windhelm" -}}
-# https://github.com/tmux-plugins/tpm/issues/67#issuecomment-319561401
-set-environment -g PATH "/opt/homebrew/bin:/usr/local/bin:/bin:/usr/bin"
-{{- end }}
-
 run '~/.tmux/plugins/tpm/tpm'
