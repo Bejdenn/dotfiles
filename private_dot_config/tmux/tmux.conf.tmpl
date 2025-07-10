@@ -16,6 +16,12 @@ set -g @plugin 'christoomey/vim-tmux-navigator'
 
 bind C-l send-keys 'C-l'
 
+{{ if eq .chezmoi.hostname "windhelm" -}}
+# FIXME: Look up what the option below does... I had
+# it so long on MacOS that I don't even remember
+set-option -sa terminal-overrides ",xterm*:Tc"
+{{- end }}
+
 # set vi-mode
 set-window-option -g mode-keys vi
 # keybindings
@@ -26,5 +32,13 @@ bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
 set -g mouse on
 
 set -g status-left-length 30
+
+set -gq allow-passthrough on
+set -g visual-activity off
+
+{{ if eq .chezmoi.hostname "windhelm" -}}
+# https://github.com/tmux-plugins/tpm/issues/67#issuecomment-319561401
+set-environment -g PATH "/opt/homebrew/bin:/usr/local/bin:/bin:/usr/bin"
+{{- end }}
 
 run '~/.tmux/plugins/tpm/tpm'
