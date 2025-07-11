@@ -24,6 +24,13 @@ done
 unset p paths_to_add
 export PATH
 
+export WEBOTS_HOME=/snap/webots/current/usr/share/webots
+# NOTE: Keep WEBOTS_HOME_PATH for compatibility with MacOS. I use it to
+# resolve the path for the controller package for Python development
+# and in MacOS it is more directory below, so I just set it here to be
+# the same as WEBOTS_HOME
+export WEBOTS_HOME_PATH=$WEBOTS_HOME
+
 # Load NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
@@ -32,4 +39,3 @@ export NVM_DIR="$HOME/.nvm"
 # Load Gemini API Key from 1Password, but only if not already set.
 # This avoids running 'op' on every new shell, speeding up startup.
 export GEMINI_API_KEY=${GEMINI_API_KEY:-$(op read "op://Private/Gemini API Key/credential" 2>/dev/null)}
-
