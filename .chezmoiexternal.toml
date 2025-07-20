@@ -6,7 +6,3 @@
     type = "git-repo"
     url = "https://github.com/tmux-plugins/tpm"
     refreshPeriod = "168h"
-[".bash/themes/aphrodite"]
-    type = "git-repo"
-    url = "git@github.com:Bejdenn/aphrodite-terminal-theme.git"
-    refreshPeriod = "168h"
