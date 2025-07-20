@@ -21,4 +21,11 @@ if [ -d ~/.bashrc.d ]; then
 fi
 unset rc
 
+export EDITOR=nvim
+export VISUAL=nvim
+
+export MANPAGER='nvim +Man!'
+
+export XDG_CONFIG_HOME="$HOME/.config"
+
 eval "$(starship init bash)"
