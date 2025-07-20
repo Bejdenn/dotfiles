@@ -1,6 +1,7 @@
 os:
   editPreset: 'nvim'
 gui:
+  autoFetch: false
   nerdFontsVersion: "3"
   # Theme from https://github.com/catppuccin/lazygit/blob/main/themes-mergable/mocha/mauve.yml
   theme:
