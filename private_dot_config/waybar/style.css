@@ -1,112 +1,100 @@
-/* Polar Night */
-@define-color nord0 #2e3440;
-
-/* Frost */
-@define-color nord7 #8fbcbb;
-
-/* Aurora */
-@define-color nord11 #bf616a;
-@define-color nord12 #d08770;
+@import "mocha.css";
 
 @keyframes blink-warning {
   70% {
-    color: white;
+    color: @text;
   }
 
   to {
-    color: white;
-    background-color: @nord12;
+    color: @yellow;
   }
 }
 
 @keyframes blink-critical {
   70% {
-    color: white;
+    color: @text;
   }
 
   to {
-    color: white;
-    background-color: @nord11;
+    color: @red;
   }
 }
 
-#waybar {
-  background: transparent;
-  font-family: Iosevka;
+* {
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  font-family: JetBrainsMonoNL Nerd Font Propo;
   font-size: 14px;
 }
 
-#custom-launcher,
-#cpu,
-#memory,
-#tray,
-#mode,
-#custom-spotify,
-#workspaces,
-#custom-updates,
-#network,
-#bluetooth,
-#pulseaudio,
-#battery,
-#backlight,
-#clock,
-#custom-power {
-  padding: 0.2rem 1rem;
-  margin: 0 2px 0 2px;
-  background: @nord0;
-  border-radius: 3px;
+window#waybar {
+  background-color: @base;
 }
 
-#custom-launcher {
-  font-size: 24px;
+.modules-left {
+  margin-left: 8px;
 }
 
-#custom-power {
-  font-size: 24px;
-}
-
-#workspaces {
-  padding: inherit;
+.modules-right {
+  margin-right: 8px;
 }
 
 #workspaces button {
-  padding: 0px 4px;
-  border-radius: 0;
+  all: initial;
+  padding: 0 6px;
+  margin: 0 1.5px;
+  min-width: 9px;
+  color: @text;
 }
 
-#workspaces button.focused:first-child,
-#workspaces button:first-child:hover {
-  border-radius: 3px 0 0 3px;
+#cpu {
+  margin: 0 20px;
 }
 
-#workspaces button.focused {
-  border-radius: 0;
-  background-color: @nord7;
-  color: @nord0;
+#battery,
+#bluetooth,
+#clock,
+#custom-nightlight,
+#custom-power,
+#custom-updates,
+#mpris,
+#network,
+#privacy,
+#pulseaudio,
+#tray {
+  min-width: 12px;
+  margin: 0 10px;
 }
 
-#workspaces button.focused:last-child,
-#workspaces button:last-child:hover {
-  border-radius: 0 3px 3px 0;
+/* Explicitly setting the text color
+*  because otherweise the coloring privacy module
+*  does not work.
+* */
+#tray,
+#cpu,
+#memory,
+#battery,
+#network,
+#bluetooth,
+#pulseaudio,
+#clock,
+#mpris,
+#custom-power,
+#custom-updates,
+#custom-nightlight,
+#power-profiles-daemon {
+  color: @text;
 }
 
-#workspaces button.focused:only-child,
-#workspaces button:only-child:hover {
-  border-radius: 3px;
+#memory,
+#custom-updates,
+#power-profiles-daemon {
+  margin: 0 12px;
 }
 
-#workspaces button.urgent {
-  background-color: @nord11;
-  color: @nord0;
-}
-
-#mode {
-  background: @nord7;
-  color: @nord0;
-}
-
-#pulseaudio.muted {
-  color: @nord7;
+tooltip {
+  padding: 2px;
 }
 
 #battery,
@@ -119,14 +107,14 @@
 #cpu.warning,
 #memory.warning,
 #battery.warning {
-  color: @nord12;
+  color: @yellow;
 }
 
 #network.disconnected,
 #cpu.critical,
 #memory.critical,
 #battery.critical {
-  color: @nord11;
+  color: @red;
 }
 
 #battery.warning.discharging {
@@ -138,4 +126,18 @@
 #battery.critical.discharging {
   animation-name: blink-critical;
   animation-duration: 2s;
+}
+
+#privacy,
+#pulseaudio.muted {
+  background-color: @peach;
+  color: @base;
+  padding: 2px 6px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+#pulseaudio.muted {
+  background-color: @teal;
 }
