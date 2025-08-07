@@ -1,11 +1,19 @@
-{{- if ne .chezmoi.os "linux" }}
-.bash*
-inputrc
+{{ if or (not (index . "compositor")) (eq .compositor "sway") -}}
+.config/hypr
+.config/swayosd
+{{ end -}}
+
+{{ if or (not (index . "compositor")) (eq .compositor "hyprland") -}}
 .config/fuzzel
-.config/mako
 .config/nwg-look
 .config/sway
 .config/swaylock
+{{- end }}
+
+{{- if ne .chezmoi.os "linux" }}
+.config/mako
+.config/systemd
 .config/waybar
 .config/zathura
+inputrc
 {{- end }}
