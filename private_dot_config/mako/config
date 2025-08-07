@@ -1,23 +1,19 @@
-font=Iosevka 12.5
+# Colors from: https://github.com/catppuccin/mako/blob/main/themes/catppuccin-mocha/catppuccin-mocha-mauve
 
-background-color=#404552
-text-color=#e5e9f0
-width=315
-height=200
-padding=10
-margin=10
-progress-color=over #eceff480
-icon-path=/usr/share/icons/Arc-X-D
-max-icon-size=70
-layer=overlay
-
-border-size=5
-border-radius=0
-border-color=#5294e2
-
-default-timeout=5000
+background-color=#1e1e2e
+text-color=#cdd6f4
+border-color=#cba6f7
+progress-color=over #313244
+font=JetBrainsMonoNL Nerd Font Propo 11
 
 [urgency=high]
+border-color=#fab387
 
-ignore-timeout=1
+[app-name=Spotify]
+invisible=1
 
+[mode=do-not-disturb]
+invisible=true
+
+[mode=do-not-disturb app-name=notify-send]
+invisible=false
