@@ -1,25 +1,14 @@
 #!/usr/bin/env bash
 
-# If not running interactively, don't do anything
-case $- in
-*i*) ;;
-*) return ;;
-esac
+[[ $- != *i* ]] && bind -f "$HOME"/inputrc
 
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+if [ -f "$HOME"/.bash_aliases ]; then
+	. "$HOME"/.bash_aliases
 fi
 
-# User specific aliases and functions
-if [ -d ~/.bashrc.d ]; then
-	for rc in ~/.bashrc.d/*; do
-		if [ -f "$rc" ]; then
-			. "$rc"
-		fi
-	done
+if [ -f "$HOME"/.bash_functions ]; then
+	. "$HOME"/.bash_functions
 fi
-unset rc
 
 export EDITOR=nvim
 export VISUAL=nvim
@@ -27,5 +16,20 @@ export VISUAL=nvim
 export MANPAGER='nvim +Man!'
 
 export XDG_CONFIG_HOME="$HOME/.config"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/miniconda3/bin/conda' 'shell.bash' 'hook' 2>/dev/null)"
+if [ $? -eq 0 ]; then
+	eval "$__conda_setup"
+else
+	if [ -f "/opt/miniconda3/etc/profile.d/conda.sh" ]; then
+		. "/opt/miniconda3/etc/profile.d/conda.sh"
+	else
+		export PATH="/opt/miniconda3/bin:$PATH"
+	fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
 eval "$(starship init bash)"

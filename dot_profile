@@ -1,0 +1,39 @@
+#!/usr/bin/env sh
+
+# For some reason... (https://aur.archlinux.org/packages/miniconda3#comment-991528)
+export CRYPTOGRAPHY_OPENSSL_NO_LEGACY='1'
+
+append_path() {
+	case ":$PATH:" in
+	*:"$1":*) ;;
+	*)
+		PATH="${PATH:+$PATH:}$1"
+		;;
+	esac
+}
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
+
+# User specific environment and startup programs
+
+append_path "$HOME/.local/bin"
+append_path "$HOME/bin"
+append_path "$HOME/.cargo/bin"
+append_path "$(go env GOPATH)/bin"
+
+export PATH
+
+unset -f append_path
+
+export WEBOTS_HOME=/snap/webots/current/usr/share/webots
+# NOTE: Keep WEBOTS_HOME_PATH for compatibility with MacOS. I use it to
+# resolve the path for the controller package for Python development
+# and in MacOS it is more directory below, so I just set it here to be
+# the same as WEBOTS_HOME
+export WEBOTS_HOME_PATH=$WEBOTS_HOME
+
+# Load NVM
+source /usr/share/nvm/init-nvm.sh
