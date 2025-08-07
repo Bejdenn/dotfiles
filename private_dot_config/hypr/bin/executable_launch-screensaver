@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# exit early if screensave is already running
+pgrep -f "ghostty --title=screensaver" && exit 0
+
+focused=$(hyprctl monitors -j | jq -r '.[] | select(.focused == true).name')
+
+for m in $(hyprctl monitors -j | jq -r '.[] | .name'); do
+	hyprctl dispatch focusmonitor "$m"
+	hyprctl dispatch exec --
+	ghostty --title=screensaver \
+		--background="#000000" \
+		--cursor-color="#000000" \
+		--background-opacity=1 \
+		--font-size=18 \
+		--font-family="JetBrainsMonoNL Nerd Font Propo" \
+		-e ~/.config/hypr/bin/cmd-screensaver
+done
+
+hyprctl dispatch focusmonitor "$focused"

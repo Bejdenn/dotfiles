@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+# nightlight returns the fitting icon for the current hyprsunset settings.
+# In case $1 is set to toggle, nightlight will also toggle the hyprsunset state,
+# going from one to the other profile.
+nightlight() {
+	on_temp=$(rg '\$on_temp = .*' ~/.config/hypr/hyprsunset.conf | awk -F' = ' '{ print $2 }')
+	off_temp=$(rg '\$off_temp = .*' ~/.config/hypr/hyprsunset.conf | awk -F' = ' '{ print $2 }')
+
+	readarray -t times < <(rg 'time = .*' ~/.config/hypr/hyprsunset.conf | awk -F' = ' '{ print $2 }')
+	# This toggle assumes that we deal with a single time range
+	if [[ ${#times} -lt 2 ]]; then
+		exit 1
+	fi
+
+	start=${times[0]}
+	end=${times[1]}
+	timestamp=$(date +"%H:%M")
+
+	# Do nothing if in the time range
+	if [[ "$timestamp" > "$start" && "$timestamp" < "$end" ]]; then
+		exit 0
+	fi
+
+	# I assume that the night light is on as soon as it
+	# deviates from the `identity` value of hyprsunset
+	if [[ "$on_temp" != "$off_temp" ]]; then
+		if [[ "$1" == "toggle" ]]; then
+			hyprctl hyprsunset temperature "$on_temp"
+		fi
+		echo ""
+	else
+		echo ""
+	fi
+}
+
+nightlight "$1"
+nightlight

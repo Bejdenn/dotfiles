@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+
+dynamic_bindings() {
+	hyprctl -j binds |
+		jq -r '.[] | {modmask, key, keycode, description, dispatcher, arg} | "\(.modmask),\(.key)@\(.keycode),\(.description),\(.dispatcher),\(.arg)"' |
+		sed -r \
+			-e 's/null//' \
+			-e 's/@0//' \
+			-e 's/,@/,code:/' \
+			-e 's/^0,/,/' \
+			-e 's/^1,/SHIFT,/' \
+			-e 's/^4,/CTRL,/' \
+			-e 's/^5,/SHIFT CTRL,/' \
+			-e 's/^8,/ALT,/' \
+			-e 's/^9,/SHIFT ALT,/' \
+			-e 's/^12,/CTRL ALT,/' \
+			-e 's/^13,/SHIFT CTRL ALT,/' \
+			-e 's/^64,/SUPER,/' \
+			-e 's/^65,/SUPER SHIFT,/' \
+			-e 's/^68,/SUPER CTRL,/' \
+			-e 's/^69,/SUPER SHIFT CTRL,/' \
+			-e 's/^72,/SUPER ALT,/'
+}
+
+parse_bindings() {
+	awk -F, '
+{ 
+    # Combine the modifier and key (first two fields)
+    key_combo = $1 " + " $2;
+
+    # Clean up: strip leading "+" if present, trim spaces
+    gsub(/^[ \t]*\+?[ \t]*/, "", key_combo);
+    gsub(/[ \t]+$/, "", key_combo);
+
+    # Use description, if set
+    action = $3;
+
+    if (action == "") {
+        # Reconstruct the command from the remaining fields
+        for (i = 4; i <= NF; i++) {
+            action = action $i (i < NF ? " " : "");
+        }
+    }
+
+    if (action != "") {
+        printf "%s\t%s\n", key_combo, action;
+    }
+}'
+}
+
+dynamic_bindings |
+	sort -u |
+	parse_bindings | awk '
+BEGIN {
+	# Table header
+	printf "Keybind\tAction\n"
+}
+{ print }
+' |
+	gum table -s$'\t' -w 25,75 --lazy-quotes |
+	awk -F$'\t' '{ print $2 }' |
+	xargs -rI '{}' hyprctl dispatch '{}'
