@@ -1,9 +1,9 @@
-{{ if or (not (index . "compositor")) (eq .compositor "sway") -}}
+{{ if eq .compositor "sway" -}}
 .config/hypr
 .config/swayosd
 {{ end -}}
 
-{{ if or (not (index . "compositor")) (eq .compositor "hyprland") -}}
+{{ if eq .compositor "hyprland" -}}
 .config/fuzzel
 .config/nwg-look
 .config/sway
