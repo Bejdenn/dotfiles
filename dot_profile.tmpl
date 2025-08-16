@@ -14,10 +14,10 @@ append_path() {
 	esac
 }
 
-# Get the aliases and functions
-if [ -f ~/.bashrc ]; then
-	. ~/.bashrc
-fi
+{{ if eq .osid "darwin" -}}
+append_path "/opt/homebrew/bin"
+eval "$(brew shellenv)"
+{{ end -}}
 
 append_path "$HOME/.local/bin"
 append_path "$HOME/.cargo/bin"
@@ -27,6 +27,7 @@ append_path "$HOME/.ghcup/bin"
 {{ if eq .osid "linux-arch" -}}
 append_path "$HOME/bin"
 {{ end -}}
+
 export PATH
 
 unset -f append_path
@@ -38,4 +39,9 @@ unset -f append_path
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-{{- end -}}
+{{- end }}
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
