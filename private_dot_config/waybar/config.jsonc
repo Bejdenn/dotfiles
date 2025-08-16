@@ -17,6 +17,7 @@
     "pulseaudio",
     "battery",
     "power-profiles-daemon",
+    "custom/nightlight",
     "custom/power",
   ],
 
@@ -219,5 +220,12 @@
     "exec": "~/.config/waybar/scripts/zeit-waybar",
     "on-click": "ghostty --title=zeit -e ~/.config/waybar/scripts/zeit-waybar click",
     "interval": 10,
+  },
+
+  "custom/nightlight": {
+    "exec": "~/bin/cmd-nightlight",
+    "return-type": "json",
+    "interval": 2,
+    "on-click": "~/bin/cmd-nightlight toggle",
   },
 }
