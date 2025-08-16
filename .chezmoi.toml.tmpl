@@ -9,7 +9,7 @@
 {{-   $hostname := output "scutil" "--get" "LocalHostName" | trim -}}
 {{- end -}}
 
-{{- $compositor := "none" -}}
+{{- $compositor := false -}}
 {{- if lookPath "hyprctl" -}}
 {{-   $compositor = "hyprland" -}}
 {{- else if lookPath "swayctl" -}}
@@ -18,8 +18,9 @@
 
 [data]
     osid = {{ $osID | quote }}
+{{ if $compositor -}}
     compositor = {{ $compositor | quote }}
-
+{{- end }}
 [github]
     refreshPeriod = "12h"
 
