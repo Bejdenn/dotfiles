@@ -7,6 +7,7 @@
   "modules-left": ["hyprland/workspaces", "cpu", "mpris"],
   "modules-center": ["clock"],
   "modules-right": [
+    "custom/zeit",
     "custom/updates",
     "privacy",
     "tray",
@@ -211,5 +212,12 @@
         "name": "obs",
       },
     ],
+  },
+
+  "custom/zeit": {
+    "format": "{}",
+    "exec": "~/.config/waybar/scripts/zeit-waybar",
+    "on-click": "ghostty --title=zeit -e ~/.config/waybar/scripts/zeit-waybar click",
+    "interval": 10,
   },
 }
