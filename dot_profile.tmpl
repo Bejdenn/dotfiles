@@ -1,7 +1,9 @@
 #!/usr/bin/env sh
 
+{{ if eq .osid "linux-arch" -}}
 # For some reason... (https://aur.archlinux.org/packages/miniconda3#comment-991528)
 export CRYPTOGRAPHY_OPENSSL_NO_LEGACY='1'
+{{- end }}
 
 append_path() {
 	case ":$PATH:" in
@@ -17,23 +19,23 @@ if [ -f ~/.bashrc ]; then
 	. ~/.bashrc
 fi
 
-# User specific environment and startup programs
-
 append_path "$HOME/.local/bin"
-append_path "$HOME/bin"
 append_path "$HOME/.cargo/bin"
 append_path "$(go env GOPATH)/bin"
-
+append_path "$HOME/.cabal/bin"
+append_path "$HOME/.ghcup/bin"
+{{ if eq .osid "linux-arch" -}}
+append_path "$HOME/bin"
+{{ end -}}
 export PATH
 
 unset -f append_path
 
-export WEBOTS_HOME=/snap/webots/current/usr/share/webots
-# NOTE: Keep WEBOTS_HOME_PATH for compatibility with MacOS. I use it to
-# resolve the path for the controller package for Python development
-# and in MacOS it is more directory below, so I just set it here to be
-# the same as WEBOTS_HOME
-export WEBOTS_HOME_PATH=$WEBOTS_HOME
-
 # Load NVM
-source /usr/share/nvm/init-nvm.sh
+{{ if eq .osid "linux-arch" -}}
+. /usr/share/nvm/init-nvm.sh
+{{- else -}}
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+{{- end -}}
