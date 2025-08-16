@@ -150,20 +150,18 @@
   },
 
   "mpris": {
-    "format": "{player_icon} {title} - {artist} <small>[{position}/{length}]</small>",
+    "format": "{status_icon} {title} - {artist} <small>[{position}/{length}]</small>",
     "title-len": 20,
     "artist-len": 20,
     "tooltip": false,
-    "player-icons": {
-      "default": "▶",
-      "paused": "⏸",
-    },
     "status-icons": {
+      "playing": "▶",
       "paused": "⏸",
     },
     "on-scroll-up": "playerctl next",
     "on-scroll-down": "playerctl previous",
     "smooth-scrolling-threshold": 10,
+    "interval": 1,
   },
 
   "power-profiles-daemon": {
