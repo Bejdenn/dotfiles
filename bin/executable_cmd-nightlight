@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+on_temp=$(rg '\$on_temp = .*' ~/.config/hypr/hyprsunset.conf | awk -F' = ' '{ print $2 }')
+off_temp=$(rg '\$off_temp = .*' ~/.config/hypr/hyprsunset.conf | awk -F' = ' '{ print $2 }')
+
+if [[ "$1" == "toggle" ]]; then
+	# Ensure hyprsunset is running
+	if ! pgrep -x hyprsunset; then
+		setsid uwsm app -- hyprsunset &
+		sleep 1 # Give it time to register
+	fi
+
+	# Query the current temperature
+	current_temp=$(hyprctl hyprsunset temperature 2>/dev/null | grep -oE '[0-9]+')
+
+	if [[ "$current_temp" == "$off_temp" ]]; then
+		hyprctl hyprsunset temperature "$on_temp"
+		notify-send " Nightlight screen temperature"
+	else
+		hyprctl hyprsunset temperature "$off_temp"
+		notify-send " Daylight screen temperature"
+	fi
+else
+	if pgrep -x hyprsunset >/dev/null 2>&1; then
+		temp=$(hyprctl hyprsunset temperature 2>/dev/null | grep -oE '[0-9]+')
+		if [ -n "$temp" ] && [ "$temp" -lt "$off_temp" ]; then
+			echo '{"text": "󰔎", "tooltip": "Night light active", "class": "status-nightlight"}'
+		else
+			echo '{"text": "", "tooltip": "", "class": "hidden"}'
+		fi
+	else
+		echo '{"text": "", "tooltip": "", "class": "hidden"}'
+	fi
+fi

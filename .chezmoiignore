@@ -11,6 +11,7 @@
 {{- end }}
 
 {{- if ne .chezmoi.os "linux" }}
+~/bin
 .config/mako
 .config/systemd
 .config/waybar

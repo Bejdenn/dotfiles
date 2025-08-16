@@ -137,7 +137,7 @@
 
   "custom/power": {
     "format": "⏻",
-    "on-click": "exec ~/.config/hypr/bin/power-menu",
+    "on-click": "exec ~/bin/power-menu",
     "tooltip": false,
   },
 
@@ -146,7 +146,7 @@
     "exec": "checkupdates | wc -l",
     "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
     "interval": 15,
-    "on-click": "ghostty --title=checkupdates -e ~/.config/waybar/scripts/update-system",
+    "on-click": "ghostty --title=checkupdates -e ~/bin/update-system",
   },
 
   "mpris": {

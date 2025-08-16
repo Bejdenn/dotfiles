@@ -14,7 +14,7 @@ for m in $(hyprctl monitors -j | jq -r '.[] | .name'); do
 		--background-opacity=1 \
 		--font-size=18 \
 		--font-family="JetBrainsMonoNL Nerd Font Propo" \
-		-e ~/.config/hypr/bin/cmd-screensaver
+		-e ~/bin/cmd-screensaver
 done
 
 hyprctl dispatch focusmonitor "$focused"

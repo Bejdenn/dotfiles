@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-yay -Syu && notify-send 'The system has been updated.'
-
-if [ "$(uname -r | sed 's/-arch/\.arch/')" != "$(pacman -Q linux | awk '{print $2}')" ]; then
-	gum confirm "Linux kernel has been updated. Reboot?" && sudo reboot now
-
-fi

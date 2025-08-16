@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+yay -Syu && notify-send 'The system has been updated.'
+
+boot_time=$(date -d "$(uptime -s)" '+%Y-%m-%d %H:%M')
+recent_kernel_updates=$(awk -v boot_time="$boot_time" '$0 >="["boot_time' /var/log/pacman.log | grep -E "\[ALPM\] (upgraded|installed) (linux|linux-zen|linux-lts|linux-hardened)\b" || true)
+
+if [ -n "$recent_kernel_updates" ]; then
+	gum confirm "Linux kernel has been updated. Reboot?" && sudo reboot now
+fi
