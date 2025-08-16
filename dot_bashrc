@@ -32,4 +32,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+export ZEIT_DB=~/.config/zeit.db
+
 eval "$(starship init bash)"
