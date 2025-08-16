@@ -11,7 +11,9 @@
 {{- end }}
 
 {{- if ne .chezmoi.os "linux" }}
-~/bin
+bin
+.config/gtk-2.0
+.config/gtk-4.0
 .config/mako
 .config/systemd
 .config/waybar
