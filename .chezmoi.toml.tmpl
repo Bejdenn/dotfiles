@@ -1,0 +1,34 @@
+{{- $osID := .chezmoi.os -}}
+{{- if (and (eq .chezmoi.os "linux") (hasKey .chezmoi.osRelease "id")) -}}
+{{-   $osID = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
+{{- end -}}
+
+{{/* work around unreliable hostname on darwin */}}
+{{- $hostname := .chezmoi.hostname -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{-   $hostname := output "scutil" "--get" "LocalHostName" | trim -}}
+{{- end -}}
+
+{{- $compositor := "none" -}}
+{{- if lookPath "hyprctl" -}}
+{{-   $compositor = "hyprland" -}}
+{{- else if lookPath "swayctl" -}}
+{{-   $compositor = "sway" -}}
+{{- end -}}
+
+[data]
+    osid = {{ $osID | quote }}
+    compositor = {{ $compositor | quote }}
+
+[github]
+    refreshPeriod = "12h"
+
+[merge]
+    command = "nvim"
+    args = [
+        "-d",
+        {{ printf "%q" "{{ .Destination }}" }},
+        {{ printf "%q" "{{ .Source }}" }},
+        {{ printf "%q" "{{ .Target }}" }},
+    ]
+
