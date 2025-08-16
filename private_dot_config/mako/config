@@ -1,10 +1,17 @@
 # Colors from: https://github.com/catppuccin/mako/blob/main/themes/catppuccin-mocha/catppuccin-mocha-mauve
-
 background-color=#1e1e2e
 text-color=#cdd6f4
 border-color=#cba6f7
 progress-color=over #313244
-font=JetBrainsMonoNL Nerd Font Propo 11
+
+font=JetBrainsMonoNL NFP Light 10
+
+padding=10
+border-size=2
+anchor=top-right
+outer-margin=20
+default-timeout=5000
+max-icon-size=32
 
 [urgency=high]
 border-color=#fab387
