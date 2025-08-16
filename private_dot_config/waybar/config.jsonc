@@ -119,7 +119,7 @@
 
   "pulseaudio": {
     "format": "{icon} {volume}%",
-    "on-click": "ghostty --title=wiremix -e wiremix",
+    "on-click": "ghostty --title=wiremix -e wiremix -v output",
     "on-click-right": "pamixer -t",
     "tooltip-format": "Playing at {volume}%",
     "scroll-step": 5,
