@@ -19,9 +19,10 @@ return {
   },
   {
     "stevearc/conform.nvim",
-    opts = function(_, opts)
-      opts.formatters_by_ft["markdown"] = { "prettier", "deno_fmt", "markdown-toc" }
-      return opts
-    end,
+    opts = {
+      formatters_by_ft = {
+        ["markdown"] = { "prettier", "deno_fmt", "markdown-toc" },
+      },
+    },
   },
 }
