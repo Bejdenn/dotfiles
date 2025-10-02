@@ -65,9 +65,9 @@ else
   fi
 
   if [ -f ~/.config/themes/current/btop.theme ]; then
-    ln -snf ~/.config/themes/current/btop.theme ~/.config/btop/themes/currrent.theme
+    ln -snf ~/.config/themes/current/btop.theme ~/.config/btop/themes/current.theme
   else
-    rm -f ~/.config/btop/themes/currrent.theme
+    rm -f ~/.config/btop/themes/current.theme
   fi
 
 fi
