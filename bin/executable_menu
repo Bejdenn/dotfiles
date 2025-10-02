@@ -1,0 +1,26 @@
+#!/bin/bash
+
+case "$1" in
+*power*)
+  rofi -show power-profiles -modi power-profiles
+  ;;
+*system*)
+  rofi -show p -modi "p:rofi-power-menu --choices=lockscreen/suspend/reboot/shutdown"
+  ;;
+*launcher*)
+  rofi -show drun -run-command "uwsm app -- {cmd}" -modes "drun,themes" -display-drun "Apps"
+  ;;
+*network*)
+  uwsm app -- networkmanager_dmenu
+  ;;
+*themes*)
+  rofi -show themes -modi themes
+  ;;
+*bluetooth*)
+  # rofi -show bluetooth -modi bluetooth
+  blueberry
+  ;;
+*)
+  notify-send "Unknown menu: '$1'"
+  ;;
+esac
