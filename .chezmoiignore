@@ -1,16 +1,17 @@
 {{ if ne .osid "linux-cachyos" }}
-bin
 .config/fish
 .config/hypr
 .config/mako
 .config/networkmanager-dmenu
 .config/octopi
+.config/paru
 .config/rofi
 .config/swayosd
 .config/systemd
 .config/themes
 .config/uwsm
 .config/waybar
+bin
 {{ else if ne .osid "darwin" }}
 {{ end }}
 *.log
