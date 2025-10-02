@@ -1,4 +1,4 @@
-[".tmux/plugins/tpm"]
+[".config/nvim"]
     type = "git-repo"
-    url = "git@github.com:tmux-plugins/tpm"
+    url = "git@github.com:Bejdenn/nvim.git"
     refreshPeriod = "168h"
