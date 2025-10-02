@@ -63,4 +63,11 @@ else
   else
     rm -f ~/.config/nvim/lua/plugins/theme.lua
   fi
+
+  if [ -f ~/.config/themes/current/btop.theme ]; then
+    ln -snf ~/.config/themes/current/btop.theme ~/.config/btop/themes/currrent.theme
+  else
+    rm -f ~/.config/btop/themes/currrent.theme
+  fi
+
 fi
