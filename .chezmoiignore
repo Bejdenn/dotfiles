@@ -1,22 +1,18 @@
-{{ if or (ne .chezmoi.os "linux") (eq .compositor "sway") -}}
-.config/hypr
-.config/swayosd
-{{ end -}}
-
-{{ if or (ne .chezmoi.os "linux") (eq .compositor "hyprland") -}}
-.config/fuzzel
-.config/nwg-look
-.config/sway
-.config/swaylock
-{{- end }}
-
-{{- if ne .chezmoi.os "linux" }}
+{{ if ne .osid "linux-cachyos" }}
 bin
-.config/gtk-2.0
-.config/gtk-4.0
+.config/cachyos
+.config/fish
+.config/hypr
 .config/mako
+.config/networkmanager-dmenu
+.config/rofi
+.config/swayosd
 .config/systemd
+.config/themes
+.config/uwsm
 .config/waybar
-.config/zathura
-inputrc
-{{- end }}
+.config/cachyos-hello.json
+{{ else if ne .osid "darwin" }}
+{{ end }}
+
+.config/mise

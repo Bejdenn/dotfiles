@@ -1,6 +1,20 @@
+{{ if eq .osid "darwin" -}}
 theme = Catppuccin Mocha
+{{ else if eq .osid "linux-cachyos" }}
+config-file = ?"~/.config/themes/current/ghostty.conf"
+{{- end }}
 
-window-padding-x = 16
+window-padding-x = 14
 window-padding-y = 14
+confirm-close-surface=false
+resize-overlay = never
 
-{{ if eq .chezmoi.os "darwin" -}} macos-option-as-alt = left {{- end }}
+# Cursor stlying
+cursor-style = "block"
+cursor-style-blink = false
+shell-integration-features = no-cursor
+
+# Keyboard bindings
+keybind = f11=toggle_fullscreen
+
+{{ if eq .osid "darwin" -}} macos-option-as-alt = left {{- end }}
