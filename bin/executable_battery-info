@@ -1,0 +1,45 @@
+#!/usr/bin/env python
+
+import argparse
+import subprocess
+from math import floor
+
+capacity = int(
+    subprocess.run(
+        ["cat", "/sys/class/power_supply/BAT1/capacity"], capture_output=True
+    ).stdout
+)
+status = str(
+    subprocess.run(
+        ["cat", "/sys/class/power_supply/BAT1/status"], capture_output=True
+    ).stdout.decode("utf-8")
+).strip()
+
+icons = {
+    "Charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
+    "Discharging": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+}
+
+
+def get_battery_info(capacity: int, status: str, show_percentage: bool = False):
+    idx = int(int(floor(capacity * 10) / 10) / 10)
+    if idx == 10:
+        # Rounding to nearest ten does not work with 100%
+        idx = 9
+    s = f"{icons[status][idx]}"
+    if show_percentage:
+        s += f" {str(capacity)}%"
+    return s
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument(
+    "--percentage",
+    default=False,
+    type=bool,
+    help="show battery percentage",
+)
+args = parser.parse_args()
+
+
+print(get_battery_info(capacity, status, args.percentage), sep="")
