@@ -1,0 +1,23 @@
+#!/bin/bash
+
+profiles=$(powerprofilesctl list | awk '/^\s*[* ]\s*[a-zA-Z0-9\-]+:$/ { gsub(/^[*[:space:]]+|:$/,""); print }' | tac)
+
+# Don't allow custom entries
+echo -e "\0no-custom\x1ftrue"
+# Use markup
+echo -e "\0markup-rows\x1ftrue"
+echo -e "\0prompt\x1fPower profiles"
+
+if [ -n "$1" ]; then
+  powerprofilesctl set "$1"
+else
+  for p in $profiles; do
+    # PERF: speed up script by avoiding second `powerprofilesctl` call just to get active profile (instead one could
+    # rely on the asterisk in `powerprofilesctl list`)
+    if powerprofilesctl | rg -q "\* $p"; then
+      echo -en "$p\0nonselectable\x1ftrue\x1fdisplay\x1f$(uc "$p") <span font_size=\"small\"><i>(active)</i></span>\n"
+    else
+      uc "$p"
+    fi
+  done
+fi

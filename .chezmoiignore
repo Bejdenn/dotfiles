@@ -1,18 +1,16 @@
 {{ if ne .osid "linux-cachyos" }}
 bin
-.config/cachyos
 .config/fish
 .config/hypr
 .config/mako
 .config/networkmanager-dmenu
+.config/octopi
 .config/rofi
 .config/swayosd
 .config/systemd
 .config/themes
 .config/uwsm
 .config/waybar
-.config/cachyos-hello.json
 {{ else if ne .osid "darwin" }}
 {{ end }}
-
-.config/mise
+*.log

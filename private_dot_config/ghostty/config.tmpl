@@ -1,6 +1,6 @@
 {{ if eq .osid "darwin" -}}
 theme = Catppuccin Mocha
-{{ else if eq .osid "linux-cachyos" }}
+{{- else if eq .osid "linux-cachyos" -}}
 config-file = ?"~/.config/themes/current/ghostty.conf"
 {{- end }}
 
@@ -16,5 +16,4 @@ shell-integration-features = no-cursor
 
 # Keyboard bindings
 keybind = f11=toggle_fullscreen
-
-{{ if eq .osid "darwin" -}} macos-option-as-alt = left {{- end }}
+{{ if eq .osid "darwin" -}} macos-option-as-alt = left {{- end -}}

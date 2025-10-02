@@ -1,0 +1,25 @@
+configuration {
+    cycle: false;
+    matching: "fuzzy";
+    case-smart: true;
+}
+
+@theme "~/.config/themes/current/rofi.rasi"
+
+* {
+  font: "JetBrainsMono Nerd Font Propo 10";
+}
+
+window {
+  border: 1px 0 1px 0;
+  children:   [ horibox ];
+}
+
+listview {
+  spacing: 30px;
+}
+
+element selected {
+  background-color: @background-color;
+  text-color: @selected-text-color;
+}

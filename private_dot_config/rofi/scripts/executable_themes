@@ -1,0 +1,66 @@
+#!/bin/bash
+
+THEMES_DIR="$HOME/.config/themes/"
+CURRENT_THEME_DIR="$HOME/.config/themes/current"
+
+if [ -z "$1" ]; then
+  # Don't allow custom entries
+  echo -e "\0no-custom\x1ftrue"
+  # Use markup
+  echo -e "\0markup-rows\x1ftrue"
+  echo -e "\0prompt\x1fThemes"
+
+  for t in $(find ~/.config/themes -maxdepth 1 -type d -printf '%P\n' | rg '[\w-]+' -o); do
+    echo -en "$t\0display\x1f$(uc "$t")\n"
+  done
+else
+  THEME_PATH="$THEMES_DIR/$1"
+
+  # Check if the theme entered exists
+  if [[ ! -d "$THEME_PATH" ]]; then
+    echo "Theme '$1' does not exist in $THEMES_DIR"
+    exit 1
+  fi
+
+  # Update theme symlinks
+  ln -nsf "$THEME_PATH" "$CURRENT_THEME_DIR"
+
+  # Restart components to apply new theme
+  restart-app waybar
+  restart-app swayosd-server
+  systemctl --user restart hyprpaper.service
+  hyprctl reload >/dev/null
+  pkill -SIGUSR2 btop
+  makoctl reload
+
+  # Change gnome modes
+  if [[ -f ~/.config/themes/current/light.mode ]]; then
+    gsettings set org.gnome.desktop.interface color-scheme "prefer-light"
+    gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"
+  else
+    gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+    gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
+  fi
+
+  # Change gnome icon theme color
+  GNOME_ICONS_THEME=~/.config/themes/current/icons.theme
+  if [[ -f $GNOME_ICONS_THEME ]]; then
+    gsettings set org.gnome.desktop.interface icon-theme "$(<$GNOME_ICONS_THEME)"
+  else
+    gsettings set org.gnome.desktop.interface icon-theme "Yaru-blue"
+  fi
+
+  killall -SIGUSR2 ghostty
+
+  if [ -f ~/.config/themes/current/eza.yml ]; then
+    ln -snf ~/.config/themes/current/eza.yml ~/.config/eza/theme.yml
+  else
+    rm -f ~/.config/eza/theme.yml
+  fi
+
+  if [ -f ~/.config/themes/current/neovim.lua ]; then
+    ln -snf ~/.config/themes/current/neovim.lua ~/.config/nvim/lua/plugins/theme.lua
+  else
+    rm -f ~/.config/nvim/lua/plugins/theme.lua
+  fi
+fi

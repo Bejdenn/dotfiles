@@ -1,0 +1,8 @@
+@theme "dmenu"
+
+* {
+  selected-text-color: #8caaee;
+  text-color: #c6d0f5;
+  border-color: #c6d0f5;
+  background-color: #24273a;
+}

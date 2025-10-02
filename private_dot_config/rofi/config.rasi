@@ -1,0 +1,15 @@
+@import "~/.config/rofi/default.rasi"
+
+horibox {
+  children: [ mode-switcher, entry, listview ];
+}
+
+mode-switcher {
+  spacing: 5px;
+  width: 8%;
+}
+
+button selected {
+  background-color: @selected-text-color;
+  text-color: @background-color;
+}
