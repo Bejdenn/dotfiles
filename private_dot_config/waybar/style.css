@@ -36,8 +36,7 @@
 #network,
 #bluetooth,
 #pulseaudio,
-#custom-screenrecording-indicator,
-#custom-update {
+#custom-screenrecording-indicator {
   min-width: 12px;
   margin: 0 7.5px;
 }
@@ -48,10 +47,6 @@
 
 tooltip {
   padding: 2px;
-}
-
-#custom-update {
-  font-size: 10px;
 }
 
 #clock {

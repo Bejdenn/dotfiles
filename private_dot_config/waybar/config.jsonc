@@ -8,8 +8,7 @@
     "hyprland/workspaces"
   ],
   "modules-center": [
-    "clock",
-    "custom/update"
+    "clock"
   ],
   "modules-right": [
     "group/tray-expander",
@@ -52,14 +51,6 @@
     "format": "{:L%A %H:%M}",
     "format-alt": "{:L%d %B W%V %Y}",
     "tooltip": false
-  },
-  "custom/update": {
-    "format": "",
-    "exec": "checkupdates | wc -l",
-    "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
-    "on-click": "ghostty --title=checkupdates -e update-system",
-    "tooltip-format": "{} packages to update",
-    "interval": 3600
   },
   "network": {
     "format-icons": [
