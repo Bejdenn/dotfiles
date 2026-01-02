@@ -15,9 +15,9 @@ else
     # PERF: speed up script by avoiding second `powerprofilesctl` call just to get active profile (instead one could
     # rely on the asterisk in `powerprofilesctl list`)
     if powerprofilesctl | rg -q "\* $p"; then
-      echo -en "$p\0nonselectable\x1ftrue\x1fdisplay\x1f$(uc "$p") <span font_size=\"small\"><i>(active)</i></span>\n"
+      echo -en "$p\0nonselectable\x1ftrue\x1fdisplay\x1f<span alpha=\"40%\" weight=\"bold\">$(uc "$p")</span>\n"
     else
-      uc "$p"
+      echo -en "$p\0display\x1f$(uc "$p")\n"
     fi
   done
 fi
