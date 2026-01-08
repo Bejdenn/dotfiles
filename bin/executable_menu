@@ -40,6 +40,9 @@ case "$1" in
 *bluetooth*)
   uwsm-app -- ghostty --class=org.pythops.bluetui -e bluetui
   ;;
+*audio*)
+  uwsm-app -- ghostty --class=term.wiremix -e wiremix
+  ;;
 *)
   notify-send "Unknown menu: '$1'"
   ;;
