@@ -6,6 +6,7 @@ profiles=$(powerprofilesctl list | awk '/^\s*[* ]\s*[a-zA-Z0-9\-]+:$/ { gsub(/^[
 echo -e "\0no-custom\x1ftrue"
 # Use markup
 echo -e "\0markup-rows\x1ftrue"
+echo -e "\0active"
 echo -e "\0prompt\x1fPower profiles"
 
 if [ -n "$1" ]; then
@@ -15,7 +16,7 @@ else
     # PERF: speed up script by avoiding second `powerprofilesctl` call just to get active profile (instead one could
     # rely on the asterisk in `powerprofilesctl list`)
     if powerprofilesctl | rg -q "\* $p"; then
-      echo -en "$p\0nonselectable\x1ftrue\x1fdisplay\x1f<span alpha=\"40%\" weight=\"bold\">$(uc "$p")</span>\n"
+      echo -en "$p\0active\x1ftrue\x1fnonselectable\x1ftrue\x1fdisplay\x1f$(uc "$p")\n"
     else
       echo -en "$p\0display\x1f$(uc "$p")\n"
     fi
