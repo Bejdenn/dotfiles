@@ -11,14 +11,34 @@ case "$1" in
   rofi -show drun -run-command "uwsm-app -- {cmd}" -modes "drun" -display-drun "Apps"
   ;;
 *network*)
-  uwsm-app -- networkmanager_dmenu
+  NEWT_COLORS=$(
+    cat ~/.config/themes/current/nmtui.ini | awk '
+  /^[[:space:]]*($|[;#])/ { next }
+
+  /^\[.*\]$/ {
+    gsub(/[\[\]]/, "", $0)   # remove brackets
+    section = $0
+    next
+  }
+
+  {
+    split($0, parts, "=")
+    key   = parts[1]
+    value = parts[2]
+
+    gsub(/^[[:space:]]+|[[:space:]]+$/, "", key)
+    gsub(/^[[:space:]]+|[[:space:]]+$/, "", value)
+
+    print key "=" value
+  }
+'
+  ) uwsm-app -- ghostty --class=org.networkmanager.nmtui -e nmtui
   ;;
 *themes*)
   rofi -show themes -modi themes
   ;;
 *bluetooth*)
-  # rofi -show bluetooth -modi bluetooth
-  blueberry
+  uwsm-app -- ghostty --class=org.pythops.bluetui -e bluetui
   ;;
 *)
   notify-send "Unknown menu: '$1'"
