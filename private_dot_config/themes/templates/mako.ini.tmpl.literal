@@ -1,8 +1,3 @@
 text-color={{ (ds "colors").foreground }}
 border-color={{ (ds "colors").accent }}
 background-color={{ (ds "colors").background }}
-padding=10
-border-size=2
-font=JetBrainsMono Nerd Font Propo 11
-max-icon-size=32
-outer-margin=20
