@@ -40,6 +40,9 @@ case "$1" in
 *bluetooth*)
   uwsm-app -- ghostty --class=term.bluetui -e bluetui
   ;;
+*displaymode*)
+  rofi -show display-mode -modi display-mode
+  ;;
 *audio*)
   uwsm-app -- ghostty --class=term.wiremix -e wiremix
   ;;
