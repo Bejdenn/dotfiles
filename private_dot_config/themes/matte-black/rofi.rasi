@@ -1,5 +1,3 @@
-@theme "dmenu"
-
 * {
   background-color: #121212;
   border-color: #EAEAEA88;
