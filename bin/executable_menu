@@ -32,13 +32,13 @@ case "$1" in
     print key "=" value
   }
 '
-  ) uwsm-app -- ghostty --class=org.networkmanager.nmtui -e nmtui
+  ) uwsm-app -- ghostty --class=term.nmtui -e nmtui
   ;;
 *themes*)
   rofi -show themes -modi themes -no-show-icons
   ;;
 *bluetooth*)
-  uwsm-app -- ghostty --class=org.pythops.bluetui -e bluetui
+  uwsm-app -- ghostty --class=term.bluetui -e bluetui
   ;;
 *audio*)
   uwsm-app -- ghostty --class=term.wiremix -e wiremix
