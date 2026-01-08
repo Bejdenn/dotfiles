@@ -14,5 +14,6 @@
 bin
 {{ else if ne .osid "darwin" }}
 {{ end }}
+!.config/fish/fish_variables
 *.log
 .config/themes/current
