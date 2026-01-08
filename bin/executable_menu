@@ -2,10 +2,10 @@
 
 case "$1" in
 *power*)
-  rofi -show power-profiles -modi power-profiles
+  rofi -show power-profiles -modi power-profiles -no-show-icons
   ;;
 *system*)
-  rofi -show p -modi "p:rofi-power-menu --choices=lockscreen/suspend/reboot/shutdown"
+  rofi -show p -modi "p:rofi-power-menu --choices=lockscreen/suspend/reboot/shutdown" -no-show-icons
   ;;
 *launcher*)
   rofi -show drun -run-command "uwsm-app -- {cmd}" -modes "drun" -display-drun "Apps"
@@ -35,7 +35,7 @@ case "$1" in
   ) uwsm-app -- ghostty --class=org.networkmanager.nmtui -e nmtui
   ;;
 *themes*)
-  rofi -show themes -modi themes
+  rofi -show themes -modi themes -no-show-icons
   ;;
 *bluetooth*)
   uwsm-app -- ghostty --class=org.pythops.bluetui -e bluetui
