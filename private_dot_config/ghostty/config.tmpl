@@ -4,16 +4,15 @@ theme = Catppuccin Mocha
 config-file = ?"~/.config/themes/current/ghostty.conf"
 {{- end }}
 
+window-theme = ghostty
 window-padding-x = 14
 window-padding-y = 14
 confirm-close-surface=false
 resize-overlay = never
+gtk-toolbar-style = flat
 
-# Cursor stlying
 cursor-style = "block"
 cursor-style-blink = false
-shell-integration-features = no-cursor
 
-# Keyboard bindings
-keybind = f11=toggle_fullscreen
+shell-integration-features = no-cursor,ssh-env
 {{ if eq .osid "darwin" -}} macos-option-as-alt = left {{- end -}}
