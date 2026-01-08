@@ -1,0 +1,6 @@
+* {
+  selected-text-color: #d7accd;
+  text-color: #8673d4;
+  border-color: #d7accd;
+  background-color: #121212;
+}
