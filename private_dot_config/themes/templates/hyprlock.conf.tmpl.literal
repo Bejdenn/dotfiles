@@ -1,0 +1,5 @@
+$color = rgba({{ (ds "colors").background | strings.TrimPrefix "#" }}, 1.0)
+$inner_color = rgba({{ (ds "colors").background | strings.TrimPrefix "#" }}, 0.8)
+$outer_color = rgba({{ (ds "colors").foreground | strings.TrimPrefix "#" }}, 1.0)
+$font_color = rgba({{ (ds "colors").foreground | strings.TrimPrefix "#" }}, 1.0)
+$check_color = rgba({{ (ds "colors").accent | strings.TrimPrefix "#" }}, 1.0)

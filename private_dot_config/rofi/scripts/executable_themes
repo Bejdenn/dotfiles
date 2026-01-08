@@ -1,29 +1,39 @@
 #!/bin/bash
 
-THEMES_DIR="$HOME/.config/themes/"
+set -uo pipefail
+
+THEMES_DIR="$HOME/.config/themes"
 CURRENT_THEME_DIR="$HOME/.config/themes/current"
 
-if [ -z "$1" ]; then
+if [ "$#" -eq 0 ]; then
   # Don't allow custom entries
   echo -e "\0no-custom\x1ftrue"
   # Use markup
   echo -e "\0markup-rows\x1ftrue"
   echo -e "\0prompt\x1fThemes"
 
-  for t in $(find ~/.config/themes -maxdepth 1 -type d -printf '%P\n' | rg '[\w-]+' -o); do
-    echo -en "$t\0display\x1f$(uc "$t")\n"
+  for t in $(find ~/.config/themes -maxdepth 1 -type d -not -path "*$THEMES_DIR/templates*" -not -path "*$CURRENT_THEME_DIR*" -printf '%P\n' | rg '[\w-]+' -o); do
+    if [[ $(cat "$CURRENT_THEME_DIR/name") == "$t" ]]; then
+      echo -en "$t\0active\x1ftrue\x1fdisplay\x1f$(uc "$t")\n"
+    else
+      echo -en "$t\0display\x1f$(uc "$t")\n"
+    fi
   done
-else
-  THEME_PATH="$THEMES_DIR/$1"
+elif [ -n "$1" ]; then
+  NEW_THEME_DIR="$THEMES_DIR/$1"
 
   # Check if the theme entered exists
-  if [[ ! -d "$THEME_PATH" ]]; then
+  if [[ ! -d "$NEW_THEME_DIR" ]]; then
     echo "Theme '$1' does not exist in $THEMES_DIR"
     exit 1
   fi
 
-  # Update theme symlinks
-  ln -nsf "$THEME_PATH" "$CURRENT_THEME_DIR"
+  rm -r "$CURRENT_THEME_DIR"
+  cp -r "$NEW_THEME_DIR" "$CURRENT_THEME_DIR"
+
+  gomplate --input-dir "$THEMES_DIR/templates" --output-map "$CURRENT_THEME_DIR"'/{{ .in | strings.ReplaceAll ".tmpl" "" }}' -d colors=file://"$NEW_THEME_DIR/colors.toml"
+
+  echo "$1" >"$CURRENT_THEME_DIR/name"
 
   # Restart components to apply new theme
   restart-app waybar
@@ -34,7 +44,7 @@ else
   makoctl reload
 
   # Change gnome modes
-  if [[ -f ~/.config/themes/current/light.mode ]]; then
+  if [[ -f "$CURRENT_THEME_DIR"/light.mode ]]; then
     gsettings set org.gnome.desktop.interface color-scheme "prefer-light"
     gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"
   else
@@ -43,31 +53,33 @@ else
   fi
 
   # Change gnome icon theme color
-  GNOME_ICONS_THEME=~/.config/themes/current/icons.theme
+  GNOME_ICONS_THEME="$CURRENT_THEME_DIR"/icons.theme
   if [[ -f $GNOME_ICONS_THEME ]]; then
-    gsettings set org.gnome.desktop.interface icon-theme "$(<$GNOME_ICONS_THEME)"
+    gsettings set org.gnome.desktop.interface icon-theme "$(<"$GNOME_ICONS_THEME")"
   else
     gsettings set org.gnome.desktop.interface icon-theme "Yaru-blue"
   fi
 
   killall -SIGUSR2 ghostty
 
-  if [ -f ~/.config/themes/current/eza.yml ]; then
-    ln -snf ~/.config/themes/current/eza.yml ~/.config/eza/theme.yml
+  if [ -f "$CURRENT_THEME_DIR"/eza.yml ]; then
+    ln -snf "$CURRENT_THEME_DIR"/eza.yml ~/.config/eza/theme.yml
   else
     rm -f ~/.config/eza/theme.yml
   fi
 
-  if [ -f ~/.config/themes/current/neovim.lua ]; then
-    ln -snf ~/.config/themes/current/neovim.lua ~/.config/nvim/lua/plugins/theme.lua
+  if [ -f "$CURRENT_THEME_DIR"/neovim.lua ]; then
+    ln -snf "$CURRENT_THEME_DIR"/neovim.lua ~/.config/nvim/lua/plugins/theme.lua
   else
     rm -f ~/.config/nvim/lua/plugins/theme.lua
   fi
 
-  if [ -f ~/.config/themes/current/btop.theme ]; then
-    ln -snf ~/.config/themes/current/btop.theme ~/.config/btop/themes/current.theme
+  if [ -f "$CURRENT_THEME_DIR"/btop.theme ]; then
+    ln -snf "$CURRENT_THEME_DIR"/btop.theme ~/.config/btop/themes/current.theme
   else
     rm -f ~/.config/btop/themes/current.theme
   fi
-
+else
+  echo "usage: themes [<name>]"
+  exit 1
 fi

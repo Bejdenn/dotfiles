@@ -1,0 +1,5 @@
+@define-color background-color {{ (ds "colors").background }};
+@define-color border-color {{ (ds "colors").foreground }};
+@define-color label {{ (ds "colors").foreground }};
+@define-color image {{ (ds "colors").foreground }};
+@define-color progress {{ (ds "colors").accent }};

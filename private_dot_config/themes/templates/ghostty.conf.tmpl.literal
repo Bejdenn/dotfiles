@@ -1,0 +1,22 @@
+background = {{ (ds "colors").background }}
+foreground = {{ (ds "colors").foreground }}
+cursor-color = {{ (ds "colors").cursor }}
+selection-background = {{ (ds "colors").selection_background }}
+selection-foreground = {{ (ds "colors").selection_foreground }}
+
+palette = 0={{ (ds "colors").color0 }}
+palette = 1={{ (ds "colors").color1 }}
+palette = 2={{ (ds "colors").color2 }}
+palette = 3={{ (ds "colors").color3 }}
+palette = 4={{ (ds "colors").color4 }}
+palette = 5={{ (ds "colors").color5 }}
+palette = 6={{ (ds "colors").color6 }}
+palette = 7={{ (ds "colors").color7 }}
+palette = 8={{ (ds "colors").color8 }}
+palette = 9={{ (ds "colors").color9 }}
+palette = 10={{ (ds "colors").color10 }}
+palette = 11={{ (ds "colors").color11 }}
+palette = 12={{ (ds "colors").color12 }}
+palette = 13={{ (ds "colors").color13 }}
+palette = 14={{ (ds "colors").color14 }}
+palette = 15={{ (ds "colors").color15 }}
