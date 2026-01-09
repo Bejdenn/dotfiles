@@ -1,0 +1,6 @@
+{{ if eq .osid "linux-cachyos" -}}
+#!/usr/bin/env bash
+
+paru -S --needed {{ range .packages.linux.cachyos -}}
+{{ . | quote }} {{ end }}
+{{ end -}}
