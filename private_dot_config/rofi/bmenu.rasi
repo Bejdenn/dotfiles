@@ -34,7 +34,11 @@ element selected.active {
 }
 
 horibox {
-  children: [ entry, listview ];
+  children: [ prompt, entry, listview ];
+}
+
+prompt {
+  padding: 0 10 0 5;
 }
 
 entry {
