@@ -63,3 +63,60 @@ packages:
       - yaru-icon-theme
       - zathura
       - zathura-pdf-poppler
+  darwin:
+    brews:
+      - bison
+      - caddy
+      - chezmoi
+      - cmake
+      - coreutils
+      - czkawka
+      - exiftool
+      - eza
+      - fastfetch
+      - fd
+      - fdupes
+      - fzf
+      - gcc
+      - gdb
+      - ghostscript
+      - imagemagick
+      - jq
+      - lazydocker
+      - lazygit
+      - luarocks
+      - mas
+      - mise
+      - neovim
+      - ollama
+      - opam
+      - openfortivpn
+      - pandoc
+      - postgresql@18
+      - ripgrep
+      - rustup
+      - sl
+      - tealdeer
+      - tree-sitter-cli
+      - watch
+      - wget
+    casks:
+      - 1password
+      - 1password-cli
+      - anki
+      - appcleaner
+      - basictex
+      - discord
+      - firefox
+      - ghostty
+      - localsend
+      - logi-options+
+      - naps2
+      - obsidian
+      - spotify
+      - zotero
+    mas:
+      - name: AusweisApp Bund
+        id: 948660805
+      - name: Microsoft Outlook
+        id: 985367838
