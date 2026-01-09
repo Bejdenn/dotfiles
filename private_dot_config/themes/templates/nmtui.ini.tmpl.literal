@@ -1,5 +1,5 @@
 root            = ,{{ (ds "colors").background }}
-border          = ,{{ (ds "colors").background }}
+border          = {{ (ds "colors").color15 }},{{ (ds "colors").background }}
 window          = ,{{ (ds "colors").background }}
 shadow          = ,{{ (ds "colors").background }}
 
