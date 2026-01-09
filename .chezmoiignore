@@ -1,7 +1,10 @@
 {{ if ne .osid "linux-cachyos" }}
+.config/btop
 .config/fish
+.config/gtk*
 .config/hypr
 .config/mako
+.config/mpv
 .config/networkmanager-dmenu
 .config/octopi
 .config/paru
