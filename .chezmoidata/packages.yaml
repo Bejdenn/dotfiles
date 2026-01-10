@@ -14,6 +14,7 @@ packages:
       - fastfetch
       - firefox
       - ghostty
+      - gomplate-git
       - greetd-tuigreet
       - hypridle
       - hyprland
