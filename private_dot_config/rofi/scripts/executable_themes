@@ -38,6 +38,16 @@ EOF
   fi
 }
 
+function set_firefox_theme() {
+  local config_dir
+  config_dir=$(find "$HOME"/.mozilla/firefox -maxdepth 1 -type d -path "*default-release*")
+
+  mkdir -p "$config_dir/chrome"
+  symlink_if_available "$CURRENT_THEME_DIR/firefox.css" "$config_dir/chrome/userChrome.css"
+
+  hyprctl clients -j | jq '.[] | select(.class == "firefox")' || restart-app firefox
+}
+
 if [ "$#" -eq 0 ]; then
   # Don't allow custom entries
   echo -e "\0no-custom\x1ftrue"
@@ -100,6 +110,7 @@ elif [ -n "$1" ]; then
   symlink_if_available "$CURRENT_THEME_DIR"/btop.theme ~/.config/btop/themes/current.theme
 
   set_obsidian_theme
+  set_firefox_theme
 else
   echo "usage: themes [<name>]"
   exit 1
