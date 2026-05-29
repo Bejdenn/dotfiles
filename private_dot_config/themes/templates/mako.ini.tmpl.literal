@@ -1,3 +1,0 @@
-text-color={{ (ds "colors").foreground }}
-border-color={{ (ds "colors").accent }}
-background-color={{ (ds "colors").background }}

@@ -1,7 +1,0 @@
-* {
-  selected-text-color: {{ (ds "colors").accent }};
-  text-color: {{ (ds "colors").foreground }};
-  border-color: {{ (ds "colors").foreground }};
-  background-color: {{ (ds "colors").background }};
-  foreground-color: {{ (ds "colors").color5 }};
-}

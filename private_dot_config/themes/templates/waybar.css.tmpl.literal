@@ -1,2 +1,0 @@
-@define-color foreground {{ (ds "colors").foreground }};
-@define-color background {{ (ds "colors").background }};
