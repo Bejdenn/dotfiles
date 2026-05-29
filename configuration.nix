@@ -187,6 +187,7 @@
     gnumake
     go
     lazygit
+    libnotify
     man
     neovim
     nodejs
