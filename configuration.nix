@@ -186,6 +186,7 @@
     gnomeExtensions.night-theme-switcher
     gnomeExtensions.space-bar
     gnomeExtensions.tophat
+    gnomeExtensions.undecorate
     gnumake
     go
     lazygit
