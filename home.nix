@@ -271,6 +271,15 @@
     };
   };
 
+  programs.lazygit = {
+    enable = true;
+    settings = {
+      git = {
+        overrideGpg = true;
+      };
+    };
+  };
+
   systemd.user.services.tailscale-systray = {
     Unit = {
       Description = "TailScale System Tray";
