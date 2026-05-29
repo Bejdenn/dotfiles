@@ -191,7 +191,7 @@
     man
     neovim
     nodejs
-    ocaml
+    opam
     ripgrep
     rustc
     tealdeer
