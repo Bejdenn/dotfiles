@@ -117,6 +117,7 @@
       fastfetch
       fastmail-desktop
       ghostty
+      jqp
       obsidian
       ollama
       spotify
