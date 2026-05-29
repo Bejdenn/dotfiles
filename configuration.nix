@@ -117,6 +117,7 @@
       fastfetch
       fastmail-desktop
       ghostty
+      jq
       jqp
       obsidian
       ollama
@@ -198,6 +199,7 @@
     tealdeer
     unzip
     uv
+    wl-clipboard
   ];
 
   fonts.packages = with pkgs; [
