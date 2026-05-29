@@ -69,7 +69,6 @@
           pkgs.gnomeExtensions.appindicator.extensionUuid
           pkgs.gnomeExtensions.blur-my-shell.extensionUuid
           pkgs.gnomeExtensions.night-theme-switcher.extensionUuid
-          pkgs.gnomeExtensions.space-bar.extensionUuid
           pkgs.gnomeExtensions.tophat.extensionUuid
         ];
       };
@@ -115,16 +114,6 @@
         sigma = 30;
         static-blur = true;
         style-dash-to-dock = 0;
-      };
-
-      "org/gnome/shell/extensions/space-bar/behavior" = {
-        smart-workspace-names = false;
-      };
-
-      "org/gnome/shell/extensions/space-bar/shortcuts" = {
-        enable-activate-workspace-shortcuts = false;
-        enable-move-to-workspace-shortcuts = true;
-        open-menu = [ ];
       };
 
       "org/gnome/shell/extensions/tophat" = {

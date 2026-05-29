@@ -182,7 +182,6 @@
     gnomeExtensions.appindicator
     gnomeExtensions.blur-my-shell
     gnomeExtensions.night-theme-switcher
-    gnomeExtensions.space-bar
     gnomeExtensions.tophat
     gnumake
     go
