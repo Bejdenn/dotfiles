@@ -71,6 +71,7 @@
           pkgs.gnomeExtensions.night-theme-switcher.extensionUuid
           pkgs.gnomeExtensions.space-bar.extensionUuid
           pkgs.gnomeExtensions.tophat.extensionUuid
+          pkgs.gnomeExtensions.undecorate.extensionUuid
         ];
       };
 
