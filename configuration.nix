@@ -119,6 +119,7 @@
       ghostty
       jq
       jqp
+      mission-center
       obsidian
       ollama
       spotify
