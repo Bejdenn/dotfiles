@@ -188,6 +188,7 @@
     lazygit
     libnotify
     man
+    mission-center
     neovim
     nodejs
     opam

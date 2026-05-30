@@ -199,37 +199,44 @@
     };
   };
 
-  xdg.desktopEntries.nvim = {
-    name = "Neovim";
-    genericName = "Text Editor";
-    comment = "Edit text files";
-    exec = "nvim %F";
-    terminal = true;
-    type = "Application";
-    icon = "nvim";
-    categories = [
-      "Utility"
-      "TextEditor"
-      "Development"
-    ];
-    startupNotify = false;
-    mimeType = [
-      "text/english"
-      "text/plain"
-      "text/x-makefile"
-      "text/x-c++hdr"
-      "text/x-c++src"
-      "text/x-chdr"
-      "text/x-csrc"
-      "text/x-java"
-      "text/x-moc"
-      "text/x-pascal"
-      "text/x-tcl"
-      "text/x-tex"
-      "application/x-shellscript"
-      "text/x-c"
-      "text/x-c++"
-    ];
+  xdg.desktopEntries = {
+    nvim = {
+      name = "Neovim";
+      genericName = "Text Editor";
+      comment = "Edit text files";
+      exec = "nvim %F";
+      terminal = true;
+      type = "Application";
+      icon = "nvim";
+      categories = [
+        "Utility"
+        "TextEditor"
+        "Development"
+      ];
+      startupNotify = false;
+      mimeType = [
+        "text/english"
+        "text/plain"
+        "text/x-makefile"
+        "text/x-c++hdr"
+        "text/x-c++src"
+        "text/x-chdr"
+        "text/x-csrc"
+        "text/x-java"
+        "text/x-moc"
+        "text/x-pascal"
+        "text/x-tcl"
+        "text/x-tex"
+        "application/x-shellscript"
+        "text/x-c"
+        "text/x-c++"
+      ];
+    };
+    "org.gnome.SystemMonitor" = {
+      name = "System Monitor";
+      type = "Application";
+      noDisplay = true;
+    };
   };
 
   programs.ghostty = {
@@ -241,7 +248,7 @@
 
   programs.git = {
     enable = true;
-    extraConfig = {
+    settings = {
       gpg = {
         format = "ssh";
       };
