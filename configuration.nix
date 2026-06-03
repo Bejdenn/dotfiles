@@ -205,17 +205,6 @@
     nerd-fonts.jetbrains-mono
   ];
 
-  system.autoUpgrade = {
-    enable = true;
-    flake = "/etc/nixos";
-    flags = [
-      "--print-build-logs"
-      "--commit-lock-file"
-    ];
-    dates = "09:00";
-    randomizedDelaySec = "45min";
-  };
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
