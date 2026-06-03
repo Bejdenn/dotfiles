@@ -119,12 +119,14 @@
       ghostty
       jq
       jqp
+      libreoffice
       mission-center
       obsidian
       ollama
       spotify
       tailscale
       texliveMedium
+      wget
     ];
     shell = pkgs.zsh;
   };
