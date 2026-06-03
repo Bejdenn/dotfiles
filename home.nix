@@ -238,11 +238,6 @@
         "text/x-c++"
       ];
     };
-    "org.gnome.SystemMonitor" = {
-      name = "System Monitor";
-      type = "Application";
-      noDisplay = true;
-    };
   };
 
   programs.ghostty = {
