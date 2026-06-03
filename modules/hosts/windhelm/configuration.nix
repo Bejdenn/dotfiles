@@ -51,9 +51,6 @@
       onActivation = {
         cleanup = "zap";
       };
-      brews = [
-        "tailscale"
-      ];
       casks = [
         "1password"
         "1password-cli"
@@ -84,6 +81,7 @@
         "spotify"
         "steam"
         "synology-drive"
+        "tailscale-app"
         "upscayl"
         "xld"
         "zotero"
