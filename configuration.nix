@@ -192,6 +192,7 @@
     gnomeExtensions.tophat
     gnumake
     go
+    just
     lazygit
     libnotify
     man
