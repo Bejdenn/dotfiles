@@ -86,8 +86,12 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  # HACK: The eza plugin in zsh cannot reliably apply the aliases
+  # if the default ones are not cleared
   environment.shellAliases = {
+    l = null;
     ll = null;
+    ls = null;
   };
 
   programs.zsh = {
