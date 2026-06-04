@@ -254,8 +254,10 @@
 
     programs.ghostty = {
       enable = true;
+      enableZshIntegration = true;
       settings = {
         theme = "light:TokyoNight Day,dark:TokyoNight Moon";
+        font-size = 13;
       };
     };
 
