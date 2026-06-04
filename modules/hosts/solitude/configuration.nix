@@ -106,18 +106,6 @@
       ls = null;
     };
 
-    programs.zsh = {
-      enable = true;
-      ohMyZsh = {
-        enable = true;
-        plugins = [
-          "eza"
-          "git"
-        ];
-        theme = "robbyrussell";
-      };
-    };
-
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.dennisbejze = {
       isNormalUser = true;
@@ -128,6 +116,10 @@
       ];
       shell = pkgs.zsh;
     };
+
+    programs.zsh.enable = true;
+
+    home-manager.users.dennisbejze = self.homeModules.dennisbejzeModule;
 
     environment.sessionVariables = rec {
       TERMINAL = "ghostty";

@@ -26,6 +26,7 @@
       pandoc
       ripgrep
       rustc
+      starship
       tealdeer
       texliveMedium
       unzip
