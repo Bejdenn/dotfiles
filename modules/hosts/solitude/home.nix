@@ -256,7 +256,7 @@
       enable = true;
       enableZshIntegration = true;
       settings = {
-        theme = "light:TokyoNight Day,dark:TokyoNight Moon";
+        theme = "light:Catppuccin Latte,dark:Catppuccin Mocha";
         font-size = 13;
       };
     };
