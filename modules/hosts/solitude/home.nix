@@ -36,6 +36,15 @@
       };
     };
 
+    xdg.terminal-exec = {
+      enable = true;
+      settings = {
+        default = [
+          "ghostty.desktop"
+        ];
+      };
+    };
+
     xdg.desktopEntries = {
       nvim = {
         name = "Neovim";

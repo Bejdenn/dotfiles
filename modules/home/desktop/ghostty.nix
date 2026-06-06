@@ -16,14 +16,5 @@
         font-size = 13;
       };
     };
-
-    xdg.terminal-exec = {
-      enable = true;
-      settings = {
-        default = [
-          "ghostty.desktop"
-        ];
-      };
-    };
   };
 }
