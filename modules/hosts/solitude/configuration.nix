@@ -6,9 +6,7 @@
   flake.nixosConfigurations.solitude = inputs.nixpkgs.lib.nixosSystem {
     modules = [
       self.modules.common
-
       self.nixosModules.solitudeModule
-      self.nixosModules.home-manager
     ];
   };
 
@@ -16,6 +14,11 @@
     imports = [
       # Include the results of the hardware scan.
       ./_hardware-configuration.nix
+      inputs.home-manager.nixosModules.default
+      {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+      }
     ];
 
     # Bootloader.
