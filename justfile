@@ -1,17 +1,17 @@
 hostname := `hostname`
 
+default: switch
+
 update:
     nix flake update
 
 upgrade: update switch
 
 [macos]
-[default]
 switch:
     sudo darwin-rebuild switch --flake ".#{{ hostname }}"
 
 [linux]
-[default]
 switch:
     sudo nixos-rebuild switch --flake ".#{{ hostname }}"
 
