@@ -122,7 +122,7 @@
 
     programs.zsh.enable = true;
 
-    home-manager.users.dennisbejze = self.homeModules.dennisbejzeModule;
+    home-manager.users.dennisbejze = self.homeModules.solitudeModule;
 
     environment.sessionVariables = rec {
       TERMINAL = "ghostty";

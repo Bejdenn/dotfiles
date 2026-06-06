@@ -99,6 +99,8 @@
       ];
     };
 
+    home-manager.users.dennisbejze = self.homeModules.windhelmModule;
+
     # Necessary for using flakes on this system.
     nix.settings.experimental-features = "nix-command flakes";
 

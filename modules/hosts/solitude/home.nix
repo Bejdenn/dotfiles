@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.homeModules.dennisbejzeModule = {
+  flake.homeModules.solitudeModule = {
     pkgs,
     lib,
     config,
