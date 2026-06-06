@@ -13,6 +13,9 @@
       {
         home.username = "dennisbejze";
       }
+
+      self.homeModules.base
+      self.homeModules.desktop
     ];
 
     # This value determines the Home Manager release that your
