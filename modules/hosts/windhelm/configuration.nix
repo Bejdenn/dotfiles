@@ -6,12 +6,19 @@
   flake.darwinConfigurations.windhelm = inputs.nix-darwin.lib.darwinSystem {
     modules = [
       self.modules.common
-
       self.darwinModules.windhelmModule
     ];
   };
 
   flake.darwinModules.windhelmModule = {pkgs, ...}: {
+    imports = [
+      inputs.home-manager.darwinModules.default
+      {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+      }
+    ];
+
     system = {
       primaryUser = "dennisbejze";
 
