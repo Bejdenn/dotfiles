@@ -9,8 +9,11 @@
     config,
     ...
   }: {
-    home.username = "dennisbejze";
-    home.homeDirectory = "/Users/dennisbejze";
+    imports = [
+      {
+        home.username = "dennisbejze";
+      }
+    ];
 
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage

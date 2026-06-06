@@ -19,6 +19,8 @@
       }
     ];
 
+    users.users.dennisbejze.home = "/Users/dennisbejze";
+
     system = {
       primaryUser = "dennisbejze";
 
