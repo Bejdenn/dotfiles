@@ -12,10 +12,16 @@
       enable = true;
       oh-my-zsh = {
         enable = true;
-        plugins = [
-          "eza"
-          "git"
-        ];
+        plugins =
+          [
+            "eza"
+            "git"
+          ]
+          ++ lib.optionalAttrs (pkgs.stdenv.isDarwin) [
+            "brew"
+            "docker"
+            "docker-compose"
+          ];
       };
     };
 
