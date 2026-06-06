@@ -17,7 +17,7 @@
             "eza"
             "git"
           ]
-          ++ lib.optionalAttrs (pkgs.stdenv.isDarwin) [
+          ++ lib.lists.optionals (pkgs.stdenv.isDarwin) [
             "brew"
             "docker"
             "docker-compose"
