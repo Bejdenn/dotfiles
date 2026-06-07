@@ -1,15 +1,18 @@
 {
   self,
   inputs,
+  config,
   ...
 }: {
   flake.homeModules.shell = {
+    config,
     pkgs,
     lib,
     ...
   }: {
     programs.zsh = {
       enable = true;
+      dotDir = "${config.xdg.configHome}/zsh";
       oh-my-zsh = {
         enable = true;
         plugins =
