@@ -21,22 +21,6 @@
       self.homeModules.xdg
     ];
 
-    programs.firefox = {
-      enable = true;
-
-      configPath = "${config.xdg.configHome}/mozilla/firefox";
-
-      policies = {
-        OfferToSaveLogins = false;
-      };
-
-      profiles.default.search = {
-        force = true;
-        default = "ddg";
-        privateDefault = "ddg";
-      };
-    };
-
     systemd.user.services.tailscale-systray = {
       Unit = {
         Description = "TailScale System Tray";
