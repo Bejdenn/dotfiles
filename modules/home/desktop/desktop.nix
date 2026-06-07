@@ -3,13 +3,7 @@
   inputs,
   ...
 }: {
-  flake.homeModules.desktop = {
-    pkgs,
-    lib,
-    ...
-  }: {
-    imports = [
-      self.homeModules.ghostty
-    ];
-  };
+  flake.homeModules.desktop.imports = with self.homeModules; [
+    ghostty
+  ];
 }

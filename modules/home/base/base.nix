@@ -3,15 +3,9 @@
   inputs,
   ...
 }: {
-  flake.homeModules.base = {
-    pkgs,
-    lib,
-    ...
-  }: {
-    imports = [
-      self.homeModules.git
-      self.homeModules.shell
-      self.homeModules.ssh
-    ];
-  };
+  flake.homeModules.base.imports = with self.homeModules; [
+    git
+    shell
+    ssh
+  ];
 }
