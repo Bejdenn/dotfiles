@@ -168,7 +168,6 @@
       _1password-gui
       antigravity-cli
       discord
-      fastfetch
       fastmail-desktop
       ghostty
       libreoffice
