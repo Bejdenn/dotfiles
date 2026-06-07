@@ -139,11 +139,6 @@
       polkitPolicyOwners = ["dennisbejze"];
     };
 
-    programs.neovim = {
-      enable = true;
-      defaultEditor = true;
-    };
-
     nix.gc = {
       automatic = true;
       dates = "weekly";
