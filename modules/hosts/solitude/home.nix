@@ -18,7 +18,6 @@
       self.homeModules.base
       self.homeModules.desktop
       self.homeModules.gnome
-      self.homeModules.xdg
     ];
 
     systemd.user.services.tailscale-systray = {
