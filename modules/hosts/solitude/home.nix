@@ -31,7 +31,7 @@
 
       Service = {
         Type = "simple";
-        ExecStart = "/etc/profiles/per-user/dennisbejze/bin/tailscale systray";
+        ExecStart = "${lib.getExe' pkgs.tailscale "tailscale systray"}";
       };
 
       Install = {
