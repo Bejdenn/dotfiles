@@ -18,5 +18,9 @@
       recursive = true;
       source = ./nvim;
     };
+
+    home.file."${config.xdg.configHome}/nvim/lazy/lazy-lock.json" = {
+      enable = false;
+    };
   };
 }
