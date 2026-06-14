@@ -183,6 +183,8 @@
       man
       mistral-vibe
       wl-clipboard
+      localsend
+      rustdesk
     ];
 
     fonts.packages = with pkgs; [
