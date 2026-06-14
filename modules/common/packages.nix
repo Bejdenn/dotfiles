@@ -33,7 +33,7 @@
         nodejs
         opam
         rustc
-        texliveMedium
+        texliveFull
         uv
       ];
   };
