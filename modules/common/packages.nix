@@ -9,6 +9,7 @@
         age
         bat
         btop
+        crush
         eza
         fastfetch
         fd
@@ -19,9 +20,11 @@
         jqp
         just
         lazygit
+        lazysql
         neovim
         pandoc
         ripgrep
+        sqlite
         starship
         tealdeer
         unzip
