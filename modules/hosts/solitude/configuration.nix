@@ -191,6 +191,20 @@
       nerd-fonts.jetbrains-mono
     ];
 
+    services.printing.drivers = with pkgs; [
+      brgenml1cupswrapper
+      brgenml1lpr
+      brlaser
+      cnijfilter2
+      gutenprint
+    ];
+
+    services.avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
+
     # Some programs need SUID wrappers, can be configured further or are
     # started in user sessions.
     # programs.mtr.enable = true;
