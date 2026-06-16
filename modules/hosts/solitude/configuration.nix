@@ -20,17 +20,6 @@
       }
     ];
 
-    # Bootloader.
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.efi.canTouchEfiVariables = true;
-
-    swapDevices = [
-      {
-        device = "/var/lib/swapfile";
-        size = 16 * 1024;
-      }
-    ];
-
     networking.hostName = "solitude"; # Define your hostname.
 
     nix.settings.experimental-features = [
