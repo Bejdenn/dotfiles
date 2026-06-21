@@ -6,6 +6,8 @@
   flake.nixosConfigurations.solitude = inputs.nixpkgs.lib.nixosSystem {
     modules = [
       self.modules.common
+
+      self.nixosModules.docker
       self.nixosModules.solitudeModule
     ];
   };
