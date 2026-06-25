@@ -19,6 +19,7 @@
         jq
         jqp
         just
+        lazydocker
         lazygit
         lazysql
         neovim
@@ -35,6 +36,7 @@
         go
         nodejs
         opam
+        pnpm
         rustc
         texliveFull
         uv

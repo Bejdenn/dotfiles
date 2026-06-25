@@ -172,7 +172,6 @@
       gnumake
       libnotify
       man
-      mistral-vibe
       wl-clipboard
       localsend
       rustdesk
