@@ -1,8 +1,4 @@
-{
-  self,
-  inputs,
-  ...
-}: {
+_: {
   flake.modules.common = {pkgs, ...}: {
     environment.systemPackages = with pkgs;
       [

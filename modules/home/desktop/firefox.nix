@@ -1,8 +1,4 @@
-{
-  self,
-  inputs,
-  ...
-}: {
+_: {
   flake.homeModules.firefox = {
     config,
     pkgs,
@@ -33,6 +29,6 @@
           };
         };
       }
-      // lib.optionalAttrs (pkgs.stdenv.isDarwin) {package = null;};
+      // lib.optionalAttrs pkgs.stdenv.isDarwin {package = null;};
   };
 }

@@ -22,15 +22,17 @@
       }
     ];
 
-    networking.hostName = "solitude"; # Define your hostname.
+    networking = {
+      hostName = "solitude";
+      networkmanager.enable = true;
+      firewall.allowedTCPPorts = [];
+      firewall.allowedUDPPorts = [];
+    };
 
     nix.settings.experimental-features = [
       "nix-command"
       "flakes"
     ];
-
-    # Enable networking
-    networking.networkmanager.enable = true;
 
     # Set your time zone.
     time.timeZone = "Europe/Berlin";
@@ -51,53 +53,52 @@
     };
 
     # Enable the X11 windowing system.
-    services.xserver.enable = true;
+    services = {
+      xserver = {
+        enable = true;
+        excludePackages = with pkgs; [
+          xterm
+        ];
+        xkb = {
+          layout = "us";
+        };
+      };
 
-    services.xserver.excludePackages = with pkgs; [
-      xterm
-    ];
+      displayManager.gdm.enable = true;
+      desktopManager.gnome.enable = true;
 
-    # Enable the GNOME Desktop Environment.
-    services.displayManager.gdm.enable = true;
-    services.desktopManager.gnome.enable = true;
+      printing = {
+        enable = true;
+        drivers = with pkgs; [
+          brgenml1cupswrapper
+          brgenml1lpr
+          brlaser
+          cnijfilter2
+          gutenprint
+        ];
+      };
 
-    # Configure keymap in X11
-    services.xserver.xkb = {
-      layout = "us";
+      avahi = {
+        enable = true;
+        nssmdns4 = true;
+        openFirewall = true;
+      };
+
+      pulseaudio.enable = false;
+      pipewire = {
+        enable = true;
+        alsa.enable = true;
+        alsa.support32Bit = true;
+        pulse.enable = true;
+      };
+
+      tailscale.enable = true;
     };
 
     # Configure console keymap
     console.keyMap = "us";
 
-    # Enable CUPS to print documents.
-    services.printing.enable = true;
-
-    # Enable sound with pipewire.
-    services.pulseaudio.enable = false;
     security.rtkit.enable = true;
-    services.pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      # If you want to use JACK applications, uncomment this
-      #jack.enable = true;
-
-      # use the example session manager (no others are packaged yet so this is enabled by default,
-      # no need to redefine it in your config for now)
-      #media-session.enable = true;
-    };
-
-    # Enable touchpad support (enabled default in most desktopManager).
-    # services.xserver.libinput.enable = true;
-
-    # HACK: The eza plugin in zsh cannot reliably apply the aliases
-    # if the default ones are not cleared
-    environment.shellAliases = {
-      l = null;
-      ll = null;
-      ls = null;
-    };
 
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.dennisbejze = {
@@ -110,24 +111,33 @@
       shell = pkgs.zsh;
     };
 
-    programs.zsh.enable = true;
+    programs = {
+      zsh.enable = true;
+      _1password.enable = true;
+      _1password-gui = {
+        enable = true;
+        polkitPolicyOwners = ["dennisbejze"];
+      };
+      nix-ld.enable = true;
+    };
 
     home-manager.users.dennisbejze = self.homeModules.solitudeModule;
 
-    environment.sessionVariables = rec {
-      TERMINAL = "ghostty";
-      MANPAGER = "nvim +Man!";
-      UV_PYTHON_DOWNLOADS = "never";
-      PATH = ["/home/dennisbejze/.cargo/bin"];
-    };
-
-    environment.localBinInPath = true;
-
-    programs._1password.enable = true;
-
-    programs._1password-gui = {
-      enable = true;
-      polkitPolicyOwners = ["dennisbejze"];
+    environment = {
+      # HACK: The eza plugin in zsh cannot reliably apply the aliases
+      # if the default ones are not cleared
+      shellAliases = {
+        l = null;
+        ll = null;
+        ls = null;
+      };
+      localBinInPath = true;
+      sessionVariables = {
+        TERMINAL = "ghostty";
+        MANPAGER = "nvim +Man!";
+        UV_PYTHON_DOWNLOADS = "never";
+        PATH = ["/home/dennisbejze/.cargo/bin"];
+      };
     };
 
     nix.gc = {
@@ -135,8 +145,6 @@
       dates = "weekly";
       options = "--delete-older-than 7d";
     };
-
-    services.tailscale.enable = true;
 
     qt = {
       enable = true;
@@ -146,8 +154,6 @@
 
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
-
-    programs.nix-ld.enable = true;
 
     environment.systemPackages = with pkgs; [
       _1password-cli
@@ -180,39 +186,6 @@
     fonts.packages = with pkgs; [
       nerd-fonts.jetbrains-mono
     ];
-
-    services.printing.drivers = with pkgs; [
-      brgenml1cupswrapper
-      brgenml1lpr
-      brlaser
-      cnijfilter2
-      gutenprint
-    ];
-
-    services.avahi = {
-      enable = true;
-      nssmdns4 = true;
-      openFirewall = true;
-    };
-
-    # Some programs need SUID wrappers, can be configured further or are
-    # started in user sessions.
-    # programs.mtr.enable = true;
-    # programs.gnupg.agent = {
-    #   enable = true;
-    #   enableSSHSupport = true;
-    # };
-
-    # List services that you want to enable:
-
-    # Enable the OpenSSH daemon.
-    # services.openssh.enable = true;
-
-    # Open ports in the firewall.
-    networking.firewall.allowedTCPPorts = [];
-    networking.firewall.allowedUDPPorts = [];
-    # Or disable the firewall altogether.
-    # networking.firewall.enable = false;
 
     # This value determines the NixOS release from which the default
     # settings for stateful data, like file locations and database versions

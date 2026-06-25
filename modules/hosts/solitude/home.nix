@@ -1,8 +1,4 @@
-{
-  self,
-  inputs,
-  ...
-}: {
+{self, ...}: {
   flake.homeModules.solitudeModule = {
     pkgs,
     lib,

@@ -1,8 +1,4 @@
-{
-  self,
-  inputs,
-  ...
-}: {
+_: {
   flake.homeModules.git = {
     pkgs,
     lib,

@@ -1,9 +1,4 @@
-{
-  self,
-  inputs,
-  config,
-  ...
-}: {
+_: {
   flake.homeModules.shell = {
     config,
     pkgs,
@@ -20,7 +15,7 @@
             "eza"
             "git"
           ]
-          ++ lib.lists.optionals (pkgs.stdenv.isDarwin) [
+          ++ lib.lists.optionals pkgs.stdenv.isDarwin [
             "brew"
             "docker"
             "docker-compose"

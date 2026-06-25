@@ -1,8 +1,4 @@
-{
-  self,
-  inputs,
-  ...
-}: {
+{self, ...}: {
   flake.homeModules.desktop.imports = with self.homeModules; [
     firefox
     ghostty

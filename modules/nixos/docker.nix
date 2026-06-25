@@ -1,8 +1,4 @@
-{
-  self,
-  inputs,
-  ...
-}: {
+_: {
   flake.nixosModules.docker = {
     pkgs,
     lib,

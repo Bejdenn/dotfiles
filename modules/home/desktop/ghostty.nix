@@ -1,8 +1,4 @@
-{
-  self,
-  inputs,
-  ...
-}: {
+_: {
   flake.homeModules.ghostty = {
     pkgs,
     lib,
@@ -17,6 +13,6 @@
           font-size = 13;
         };
       }
-      // lib.optionalAttrs (pkgs.stdenv.isDarwin) {package = null;};
+      // lib.optionalAttrs pkgs.stdenv.isDarwin {package = null;};
   };
 }
