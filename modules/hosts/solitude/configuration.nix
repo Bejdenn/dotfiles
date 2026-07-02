@@ -8,6 +8,7 @@
       self.modules.common
 
       self.nixosModules.docker
+      self.nixosModules.printing
       self.nixosModules.solitudeModule
     ];
   };
@@ -66,23 +67,6 @@
 
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
-
-      printing = {
-        enable = true;
-        drivers = with pkgs; [
-          brgenml1cupswrapper
-          brgenml1lpr
-          brlaser
-          cnijfilter2
-          gutenprint
-        ];
-      };
-
-      avahi = {
-        enable = true;
-        nssmdns4 = true;
-        openFirewall = true;
-      };
 
       pulseaudio.enable = false;
       pipewire = {
