@@ -102,7 +102,12 @@
         enable = true;
         polkitPolicyOwners = ["dennisbejze"];
       };
-      nix-ld.enable = true;
+      nix-ld = {
+        enable = true;
+        libraries = with pkgs; [
+          icu
+        ];
+      };
     };
 
     home-manager.users.dennisbejze = self.homeModules.solitudeModule;
