@@ -5,7 +5,6 @@ _: {
         age
         bat
         btop
-        crush
         eza
         fastfetch
         fd

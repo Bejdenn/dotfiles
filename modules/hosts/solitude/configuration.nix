@@ -164,7 +164,8 @@
       man
       wl-clipboard
       localsend
-      rustdesk
+      signal-desktop
+      github-copilot-cli
     ];
 
     fonts.packages = with pkgs; [
