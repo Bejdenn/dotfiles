@@ -6,6 +6,7 @@
   }: {
     imports = with self.nixosModules; [
       docker
+      gnome
       printing
     ];
 
@@ -49,9 +50,6 @@
           layout = "us";
         };
       };
-
-      displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
 
       pulseaudio.enable = false;
       pipewire = {
@@ -118,12 +116,6 @@
       options = "--delete-older-than 7d";
     };
 
-    qt = {
-      enable = true;
-      platformTheme = "gnome";
-      style = "adwaita-dark";
-    };
-
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
@@ -142,11 +134,6 @@
       tailscale
       firefox
       git
-      gnomeExtensions.alphabetical-app-grid
-      gnomeExtensions.appindicator
-      gnomeExtensions.blur-my-shell
-      gnomeExtensions.night-theme-switcher
-      gnomeExtensions.tophat
       gnumake
       libnotify
       man
