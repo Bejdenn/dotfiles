@@ -15,11 +15,18 @@
       firewall.allowedTCPPorts = [];
       firewall.allowedUDPPorts = [];
     };
+    nix = {
+      settings.experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
 
-    nix.settings.experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
+      gc = {
+        automatic = true;
+        dates = "weekly";
+        options = "--delete-older-than 7d";
+      };
+    };
 
     # Set your time zone.
     time.timeZone = "Europe/Berlin";
@@ -93,6 +100,9 @@
       };
     };
 
+    # Allow unfree packages
+    nixpkgs.config.allowUnfree = true;
+
     environment = {
       # HACK: The eza plugin in zsh cannot reliably apply the aliases
       # if the default ones are not cleared
@@ -108,40 +118,31 @@
         UV_PYTHON_DOWNLOADS = "never";
         PATH = ["/home/dennisbejze/.cargo/bin"];
       };
+
+      systemPackages = with pkgs; [
+        _1password-cli
+        _1password-gui
+        antigravity-cli
+        discord
+        fastmail-desktop
+        ghostty
+        libreoffice
+        mission-center
+        obsidian
+        ollama
+        spotify
+        tailscale
+        firefox
+        git
+        gnumake
+        libnotify
+        man
+        wl-clipboard
+        localsend
+        signal-desktop
+        github-copilot-cli
+      ];
     };
-
-    nix.gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
-    };
-
-    # Allow unfree packages
-    nixpkgs.config.allowUnfree = true;
-
-    environment.systemPackages = with pkgs; [
-      _1password-cli
-      _1password-gui
-      antigravity-cli
-      discord
-      fastmail-desktop
-      ghostty
-      libreoffice
-      mission-center
-      obsidian
-      ollama
-      spotify
-      tailscale
-      firefox
-      git
-      gnumake
-      libnotify
-      man
-      wl-clipboard
-      localsend
-      signal-desktop
-      github-copilot-cli
-    ];
 
     fonts.packages = with pkgs; [
       nerd-fonts.jetbrains-mono

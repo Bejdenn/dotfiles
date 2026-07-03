@@ -9,6 +9,7 @@ _: {
       settings = {
         "org/gnome/desktop/interface" = {
           show-battery-percentage = true;
+          accent-color = "blue";
         };
 
         "org/gnome/desktop/calendar".show-weekdate = true;
@@ -17,19 +18,19 @@ _: {
 
         "org/gnome/system/location".enabled = true;
 
-        "org/gnome/shell".favorite-apps = [
-          "1password.desktop"
-          "com.mitchellh.ghostty.desktop"
-          "nvim.desktop"
-          "spotify.desktop"
-          "obsidian.desktop"
-          "org.gnome.Nautilus.desktop"
-          "org.gnome.Settings.desktop"
-          "fastmail.desktop"
-          "firefox.desktop"
-        ];
-
         "org/gnome/shell" = {
+          favorite-apps = [
+            "1password.desktop"
+            "com.mitchellh.ghostty.desktop"
+            "nvim.desktop"
+            "spotify.desktop"
+            "obsidian.desktop"
+            "org.gnome.Nautilus.desktop"
+            "org.gnome.Settings.desktop"
+            "fastmail.desktop"
+            "firefox.desktop"
+          ];
+
           "always-show-log-out" = true;
           enabled-extensions = [
             pkgs.gnomeExtensions.alphabetical-app-grid.extensionUuid
@@ -40,36 +41,17 @@ _: {
           ];
         };
 
-        "org/gnome/desktop/interface" = {
-          accent-color = "blue";
-        };
-
         "org/gnome/nautilus/preferences" = {
           default-folder-viewer = "list-view";
         };
 
         "org/gnome/nautilus/list-view".default-zoom-level = "small";
 
-        "org/gnome/shell/extensions/blur-my-shell/appfolder" = {
-          blur = false;
-        };
-
-        "org/gnome/shell/extensions/blur-my-shell/lockscreen" = {
-          blur = false;
-        };
-
-        "org/gnome/shell/extensions/blur-my-shell/screenshot" = {
-          blur = false;
-        };
-
-        "org/gnome/shell/extensions/blur-my-shell/window-list" = {
-          blur = false;
-        };
-
-        "org/gnome/shell/extensions/blur-my-shell/panel" = {
-          blur = false;
-        };
-
+        "org/gnome/shell/extensions/blur-my-shell/appfolder".blur = false;
+        "org/gnome/shell/extensions/blur-my-shell/lockscreen".blur = false;
+        "org/gnome/shell/extensions/blur-my-shell/screenshot".blur = false;
+        "org/gnome/shell/extensions/blur-my-shell/window-list".blur = false;
+        "org/gnome/shell/extensions/blur-my-shell/panel".blur = false;
         "org/gnome/shell/extensions/blur-my-shell/overview" = {
           blur = true;
           pipeline = "pipeline_default";
