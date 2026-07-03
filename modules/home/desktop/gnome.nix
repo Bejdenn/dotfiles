@@ -30,6 +30,7 @@ _: {
         ];
 
         "org/gnome/shell" = {
+          "always-show-log-out" = true;
           enabled-extensions = [
             pkgs.gnomeExtensions.alphabetical-app-grid.extensionUuid
             pkgs.gnomeExtensions.appindicator.extensionUuid
