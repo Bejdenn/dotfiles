@@ -30,7 +30,6 @@ _: {
         cargo
         go
         nodejs
-        opam
         pnpm
         rustc
         texliveFull
