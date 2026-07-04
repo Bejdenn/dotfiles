@@ -12,5 +12,7 @@ _: {
       withRuby = false;
       withPython3 = false;
     };
+
+    programs.lazygit.enable = true;
   };
 }

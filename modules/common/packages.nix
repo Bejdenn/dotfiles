@@ -14,10 +14,7 @@ _: {
         jq
         jqp
         just
-        lazydocker
-        lazygit
         lazysql
-        neovim
         pandoc
         ripgrep
         sqlite
