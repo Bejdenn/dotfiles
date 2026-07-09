@@ -98,6 +98,7 @@
           icu
         ];
       };
+      localsend.enable = true;
     };
 
     # Allow unfree packages
@@ -138,7 +139,6 @@
         libnotify
         man
         wl-clipboard
-        localsend
         signal-desktop
         github-copilot-cli
       ];
