@@ -10,6 +10,7 @@ _: {
         fd
         fzf
         gcc
+        gum
         imagemagick
         jq
         jqp
