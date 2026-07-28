@@ -12,8 +12,8 @@ _: {
           {
             theme = "light:Catppuccin Latte,dark:Catppuccin Mocha";
             font-size = 13;
-            window-padding-x = 14;
-            window-padding-y = 14;
+            window-padding-x = 8;
+            window-padding-y = 8;
           }
           // lib.optionalAttrs pkgs.stdenv.isDarwin {
             macos-option-as-alt = "left";
