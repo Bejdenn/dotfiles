@@ -8,10 +8,16 @@ _: {
       {
         enable = true;
         enableZshIntegration = true;
-        settings = {
-          theme = "light:Catppuccin Latte,dark:Catppuccin Mocha";
-          font-size = 13;
-        };
+        settings =
+          {
+            theme = "light:Catppuccin Latte,dark:Catppuccin Mocha";
+            font-size = 13;
+            window-padding-x = 14;
+            window-padding-y = 14;
+          }
+          // lib.optionalAttrs pkgs.stdenv.isDarwin {
+            macos-option-as-alt = "left";
+          };
       }
       // lib.optionalAttrs pkgs.stdenv.isDarwin {package = null;};
   };
