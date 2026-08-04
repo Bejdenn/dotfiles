@@ -125,7 +125,6 @@
         _1password-gui
         antigravity-cli
         discord
-        fastmail-desktop
         ghostty
         libreoffice
         mission-center
