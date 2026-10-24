@@ -9,7 +9,6 @@ _: {
         fastfetch
         fd
         fzf
-        gcc
         gum
         imagemagick
         jq
@@ -23,6 +22,10 @@ _: {
         tealdeer
         unzip
         wget
+      ]
+      ++ lib.optionals pkgs.stdenv.isLinux
+      [
+        gcc
       ]
       ++ [
         cargo
