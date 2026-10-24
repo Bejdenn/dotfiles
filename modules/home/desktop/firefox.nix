@@ -29,6 +29,6 @@ _: {
           };
         };
       }
-      // lib.optionalAttrs pkgs.stdenv.isDarwin {package = null;};
+      // lib.optionalAttrs pkgs.stdenv.hostPlatform.isDarwin {package = null;};
   };
 }

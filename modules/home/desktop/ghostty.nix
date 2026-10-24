@@ -15,10 +15,10 @@ _: {
             window-padding-x = 8;
             window-padding-y = 8;
           }
-          // lib.optionalAttrs pkgs.stdenv.isDarwin {
+          // lib.optionalAttrs pkgs.stdenv.hostPlatform.isDarwin {
             macos-option-as-alt = "left";
           };
       }
-      // lib.optionalAttrs pkgs.stdenv.isDarwin {package = null;};
+      // lib.optionalAttrs pkgs.stdenv.hostPlatform.isDarwin {package = null;};
   };
 }

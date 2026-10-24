@@ -12,7 +12,7 @@ _: {
         };
         "gpg \"ssh\"" = {
           program =
-            if pkgs.stdenv.isLinux
+            if pkgs.stdenv.hostPlatform.isLinux
             then "${lib.getExe' pkgs._1password-gui "op-ssh-sign"}"
             else "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
         };

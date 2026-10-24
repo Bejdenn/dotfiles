@@ -15,7 +15,7 @@ _: {
             "eza"
             "git"
           ]
-          ++ lib.lists.optionals pkgs.stdenv.isDarwin [
+          ++ lib.lists.optionals pkgs.stdenv.hostPlatform.isDarwin [
             "brew"
             "docker"
             "docker-compose"

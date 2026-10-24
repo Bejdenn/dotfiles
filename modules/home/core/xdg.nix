@@ -7,14 +7,14 @@ _: {
     xdg = {
       enable = true;
       terminal-exec = {
-        enable = pkgs.stdenv.isLinux;
+        enable = pkgs.stdenv.hostPlatform.isLinux;
         settings = {
           default = [
             "ghostty.desktop"
           ];
         };
       };
-      desktopEntries = lib.optionalAttrs pkgs.stdenv.isLinux {
+      desktopEntries = lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux {
         nvim = {
           name = "Neovim";
           genericName = "Text Editor";
