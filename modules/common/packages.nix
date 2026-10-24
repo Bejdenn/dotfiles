@@ -30,7 +30,7 @@ _: {
       ++ [
         cargo
         go
-        nodejs
+        nodejs_latest
         pnpm
         python3
         rustc
