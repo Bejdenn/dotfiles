@@ -23,6 +23,11 @@ _: {
       };
     };
 
+    home.sessionPath = [
+      "$HOME/.cargo/bin"
+      "$HOME/go/bin"
+    ];
+
     programs.starship = {
       enable = true;
       enableZshIntegration = true;

@@ -117,7 +117,6 @@
         TERMINAL = "ghostty";
         MANPAGER = "nvim +Man!";
         UV_PYTHON_DOWNLOADS = "never";
-        PATH = ["/home/dennisbejze/.cargo/bin"];
       };
 
       systemPackages = with pkgs; [
