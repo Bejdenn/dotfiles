@@ -32,6 +32,7 @@ _: {
         go
         nodejs
         pnpm
+        python3
         rustc
         texliveFull
         uv
