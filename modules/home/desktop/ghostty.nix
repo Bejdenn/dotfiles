@@ -10,7 +10,7 @@ _: {
         enableZshIntegration = true;
         settings =
           {
-            theme = "light:Catppuccin Latte,dark:Catppuccin Mocha";
+            theme = "light:Catppuccin Frappe,dark:Catppuccin Mocha";
             font-size = 13;
             window-padding-x = 8;
             window-padding-y = 8;
