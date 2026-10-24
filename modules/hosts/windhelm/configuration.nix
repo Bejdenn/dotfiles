@@ -46,7 +46,6 @@
 
     environment.systemPackages = with pkgs; [
       cook-cli
-      czkawka
       exiftool
       fdupes
       lazydocker
@@ -63,13 +62,19 @@
           "--force-cleanup"
         ];
       };
+      brews = [
+        "czkawka"
+      ];
       casks = [
         "1password"
         "1password-cli"
         "anki"
         "appcleaner"
+        "blender"
+        "chatgpt"
         "connectmenow"
         "discord"
+        "docker-desktop"
         "fastmail"
         "firefox"
         "ghostty"
@@ -78,14 +83,14 @@
         "hp-easy-start"
         "jellyfin"
         "localsend"
-        "logi-options+"
         "makemkv"
         "musicbrainz-picard"
         "naps2"
-        "obs"
         "obsidian"
         "ollama-app"
+        "openlogi"
         "rectangle"
+        "roblox"
         "rustdesk"
         "sanesidebuttons"
         "signal"
