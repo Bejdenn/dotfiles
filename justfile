@@ -8,7 +8,7 @@ update:
 upgrade: update switch
 
 check-dirty:
-    @count=$(git rev-list --count @{u}..HEAD) && [ "$count" -gt 0 ] && gum -lwarn "There are $count unpushed commits—push them so all hosts stay up‑to‑date." || true
+    @count=$(git rev-list --count @{u}..HEAD) && [ "$count" -gt 0 ] && gum log -lwarn "There are $count unpushed commits—push them so all hosts stay up‑to‑date." || true
 
 [macos]
 switch: check-dirty
