@@ -5,7 +5,10 @@ _: {
     ...
   }: {
     services = {
-      displayManager.gdm.enable = true;
+      displayManager = {
+        autoLogin.user = "dennisbejze";
+        gdm.enable = true;
+      };
       desktopManager.gnome.enable = true;
     };
 
