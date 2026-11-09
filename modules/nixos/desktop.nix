@@ -116,7 +116,6 @@
       sessionVariables = {
         TERMINAL = "ghostty";
         MANPAGER = "nvim +Man!";
-        UV_PYTHON_DOWNLOADS = "never";
       };
 
       systemPackages = with pkgs; [
