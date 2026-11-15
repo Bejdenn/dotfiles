@@ -47,24 +47,6 @@ _: {
 
         "org/gnome/nautilus/list-view".default-zoom-level = "small";
 
-        "org/gnome/shell/extensions/blur-my-shell/appfolder".blur = false;
-        "org/gnome/shell/extensions/blur-my-shell/lockscreen".blur = false;
-        "org/gnome/shell/extensions/blur-my-shell/screenshot".blur = false;
-        "org/gnome/shell/extensions/blur-my-shell/window-list".blur = false;
-        "org/gnome/shell/extensions/blur-my-shell/panel".blur = false;
-        "org/gnome/shell/extensions/blur-my-shell/overview" = {
-          blur = true;
-          pipeline = "pipeline_default";
-        };
-
-        "org/gnome/shell/extensions/blur-my-shell/dash-to-dock" = {
-          blur = true;
-          brightness = 0.6;
-          sigma = 30;
-          static-blur = true;
-          style-dash-to-dock = 0;
-        };
-
         "org/gnome/shell/extensions/tophat" = {
           show-icons = true;
           show-cpu = true;
