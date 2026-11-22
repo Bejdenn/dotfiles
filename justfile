@@ -5,6 +5,12 @@ default: switch
 update:
     nix flake update
 
+[macos]
+upgrade: update switch
+    brew update && brew upgrade
+    brew services restart ollama
+
+[linux]
 upgrade: update switch
 
 check-dirty:
