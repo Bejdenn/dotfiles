@@ -25,6 +25,7 @@ _: {
 
     home.sessionPath = [
       "$HOME/.cargo/bin"
+      "$HOME/.local/bin"
       "$HOME/go/bin"
     ];
 
