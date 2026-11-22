@@ -64,6 +64,7 @@
       brews = [
         "cookcli"
         "czkawka"
+        "go-air"
         "ollama"
       ];
       casks = [
@@ -73,6 +74,7 @@
         "appcleaner"
         "blender"
         "chatgpt"
+        "codex"
         "connectmenow"
         "discord"
         "docker-desktop"
