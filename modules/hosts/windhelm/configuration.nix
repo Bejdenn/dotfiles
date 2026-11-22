@@ -79,7 +79,6 @@
         "fastmail"
         "firefox"
         "ghostty"
-        "gimp"
         "handbrake-app"
         "hp-easy-start"
         "jellyfin"
@@ -101,7 +100,6 @@
         "tailscale-app"
         "upscayl"
         "xld"
-        "zotero"
       ];
     };
 
