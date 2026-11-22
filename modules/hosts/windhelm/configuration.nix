@@ -64,6 +64,7 @@
       brews = [
         "cookcli"
         "czkawka"
+        "ollama"
       ];
       casks = [
         "1password"
@@ -87,7 +88,6 @@
         "musicbrainz-picard"
         "naps2"
         "obsidian"
-        "ollama-app"
         "openlogi"
         "rectangle"
         "roblox"
