@@ -99,6 +99,7 @@
         "synology-drive"
         "tailscale-app"
         "upscayl"
+        "utm"
         "xld"
       ];
     };
