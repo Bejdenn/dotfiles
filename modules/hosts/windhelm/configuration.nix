@@ -54,13 +54,7 @@
 
     homebrew = {
       enable = true;
-      onActivation = {
-        cleanup = "zap";
-        # FIXME: Remove when https://github.com/nix-darwin/nix-darwin/issues/1787 is fixed
-        extraFlags = [
-          "--force-cleanup"
-        ];
-      };
+      onActivation.cleanup = "zap";
       brews = [
         "cookcli"
         "czkawka"
