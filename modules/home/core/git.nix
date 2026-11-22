@@ -22,7 +22,7 @@ _: {
         user = {
           signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM3aqi63NirsDm9k+epbHFyoshmBN9D+AxylQ2u7PmRF";
           name = "Dennis Bejze";
-          email = "53354166+Bejdenn@users.noreply.github.com";
+          email = "git@dennis.bejze.de";
         };
         pull.rebase = true;
       };
