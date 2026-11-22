@@ -28,7 +28,7 @@
         minimize-to-application = true;
         persistent-apps = [
           {app = "/System/Applications/Apps.app";}
-          {app = "/Applications/Firefox.app";}
+          {app = "/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app";}
           {app = "/System/Applications/Messages.app";}
           {app = "/Applications/Fastmail.app";}
           {app = "/System/Applications/Calendar.app";}
