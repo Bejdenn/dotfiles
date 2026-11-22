@@ -45,7 +45,6 @@
     };
 
     environment.systemPackages = with pkgs; [
-      cook-cli
       exiftool
       fdupes
       lazydocker
@@ -63,6 +62,7 @@
         ];
       };
       brews = [
+        "cookcli"
         "czkawka"
       ];
       casks = [
